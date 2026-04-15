@@ -54,22 +54,34 @@ p code, li code {
 
 }
 
+// #no-results-msg {
+//   display: none;
+// }
+
+// .moj-filter__selected {
+//   display: none;
+// }
+
+#no-results-msg, .moj-filter__selected { display: none; }
+.card-group-custom { display: grid; } /* Default state */
+
 /* The container: 3 columns, 3 rows */
 .card-group-custom {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* First column takes 2 parts, others take 1 part each */
+  grid-template-columns: 2.5fr 2fr 1fr 1fr; 
   grid-template-rows: repeat(3, auto);
-  gap: 15px; /* Adjust spacing as needed */
+  gap: 15px;
   padding-top: 15px;
   padding-bottom: 15px;
-  border-top: 1px solid #b1b4b6; /* Optional GOV.UK style divider */
+  border-top: 1px solid #b1b4b6;
 }
 
 /* Individual items: Flexbox for internal alignment */
 .card-item {
   display: flex;
   flex-direction: column; /* Stacks spans vertically */
-  justify-content: center;
+  justify-content: flex-start;
   padding: 5px;
   
 }
@@ -189,7 +201,7 @@ p code, li code {
     padding: 20px;
 }
 
-////////////////// sticky save bard /////////////////////////
+////////////////// sticky save card /////////////////////////
 
 .sticky-action-bar {
     justify-content: space-between;
@@ -222,13 +234,16 @@ p code, li code {
 .print-only-header { display: none; }
 
 @media print {
-
+  /* 1. Show the header row as a grid */
   .print-only-header {
     display: grid !important;
-    grid-template-columns: 2fr 1fr 1.5fr 1.5fr 1fr 1fr;
+    grid-template-columns: 1.5fr 2fr 1.5fr 1fr 1fr;
     border-bottom: 2pt solid black;
+    padding-bottom: 5pt;
+    margin-bottom: 5pt;
   }
-  /* 1. Hide ALL interactive and navigational elements */
+
+  /* 2. Hide ALL interactive and navigational elements */
   .moj-filter, 
   .moj-filter-layout__filter,
   .moj-search,
@@ -238,12 +253,12 @@ p code, li code {
   .govuk-header,
   .govuk-footer,
   .govuk-phase-banner,
-  .govuk-form-group:has(#sort), /* Hides the sort dropdown */
+  .govuk-form-group:has(#sort), 
   #search-form {
     display: none !important;
   }
 
-  /* 2. Full-width layout reset */
+  /* 3. Full-width layout reset */
   .moj-filter-layout__content,
   .govuk-grid-column-two-thirds,
   .govuk-grid-column-three-quarters {
@@ -252,24 +267,10 @@ p code, li code {
     padding: 0 !important;
   }
 
-  /* 3. The Table Header Row */
-  .card-group-custom:first-of-type::before {
-    content: "Name & ID \A0 \A0 \A0 \A0 \A0 \A0 \A0 Status \A0 \A0 \A0 \A0 Location \A0 \A0 \A0 \A0 \A0 Date & Time \A0 \A0 \A0 \A0 Type \A0 \A0 \A0 \A0 \A0 Reason";
-    display: block;
-    white-space: pre;
-    font-weight: bold;
-    font-size: 14pt;
-    padding: 10pt 5pt;
-    background-color: #f3f2f1; /* light grey header background */
-    border-bottom: 2pt solid black;
-    margin-bottom: 5pt;
-    width: 100%;
-  }
-
   /* 4. The Card Row (Table Body) */
   .card-group-custom {
     display: grid !important;
-    grid-template-columns: 2fr 1fr 1.5fr 1.5fr 1fr 1fr;
+    grid-template-columns: 1.5fr 2fr 1.5fr 1fr 1fr;
     border-bottom: 0.5pt solid #b1b4b6;
     padding: 10pt 0;
     page-break-inside: avoid;
@@ -277,14 +278,19 @@ p code, li code {
   }
 
   /* 5. Clean up data cells */
-  /* Hide the "Label: " text inside cards */
+  
+  /* Hide the "Label: " text inside cards (e.g., hides "Date" so only "22 Feb" shows) */
   .card-item span:first-child:not(:only-child) {
     display: none !important;
   }
 
-  /* Hide your empty spacer divs */
+  /* Corrected Spacer Logic:
+     - 2 & 3 are empty spacers after Name
+     - 9 is the trailing spacer
+     - 7 (Date) and 8 (Time) are now VISIBLE */
   .card-item:nth-child(2), 
-  .card-item:nth-child(7),
+  .card-item:nth-child(3),
+  .card-item:nth-child(4),
   .card-item:nth-child(9) {
     display: none !important;
   }
@@ -300,6 +306,7 @@ p code, li code {
     background: transparent !important;
     color: black !important;
     font-weight: bold !important;
+    text-transform: none; /* Keep GOV.UK style but ensure readability */
   }
 
   .govuk-body {
@@ -307,8 +314,15 @@ p code, li code {
     margin: 0 !important;
   }
 
+  /* Remove link underlines for a cleaner table look */
+  .govuk-link {
+    text-decoration: none !important;
+    color: black !important;
+  }
+
   @page {
     size: landscape;
     margin: 1cm;
   }
 }
+

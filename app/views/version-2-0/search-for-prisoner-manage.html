@@ -92,7 +92,7 @@
                 <p><a class="govuk-link govuk-link--no-visited-state" href="">Clear filters</a></p>
               </div>
             </div>
-            <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Appearance type</h3>
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Court location</h3>
             <ul class="moj-filter-tags">
               
             </ul>
@@ -121,7 +121,7 @@
                 <input class="govuk-input moj-js-datepicker-input " id="date" name="date" type="text" aria-describedby="date-hint" autocomplete="off">
               </div>
             </div>
-            <br>
+            
             <div class="moj-datepicker" data-module="moj-date-picker">
               <div class="govuk-form-group">
                 <label class="govuk-label govuk-label--s" for="date2">
@@ -134,111 +134,92 @@
               </div>
             </div>
             <br>
-            <div class="govuk-form-group">
-              <fieldset class="govuk-fieldset">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                  Appearance type
-                </legend>
-                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="type" name="type" type="checkbox" value="1">
-                    <label class="govuk-label govuk-checkboxes__label" for="type">
-                      In person
-                    </label>
-                  </div>
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="2">
-                    <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                      Online
-                    </label>
-                  </div>
-                </div>
-              </fieldset>
-            </div>
-            <div class="govuk-form-group">
-  <fieldset class="govuk-fieldset">
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-      Reason
-    </legend>
-    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-      
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="reason-1" name="reason" type="checkbox" value="court-appearance">
-        <label class="govuk-label govuk-checkboxes__label" for="reason-1">Court Appearance</label>
-      </div>
-
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="reason-2" name="reason" type="checkbox" value="video-link">
-        <label class="govuk-label govuk-checkboxes__label" for="reason-2">Video Link (Court Appearance)</label>
-      </div>
-
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="reason-3" name="reason" type="checkbox" value="trial">
-        <label class="govuk-label govuk-checkboxes__label" for="reason-3">Trial</label>
-      </div>
-
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="reason-4" name="reason" type="checkbox" value="sentencing">
-        <label class="govuk-label govuk-checkboxes__label" for="reason-4">Sentencing</label>
-      </div>
-
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="reason-5" name="reason" type="checkbox" value="bail">
-        <label class="govuk-label govuk-checkboxes__label" for="reason-5">Bail application</label>
-      </div>
-
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="reason-6" name="reason" type="checkbox" value="breach">
-        <label class="govuk-label govuk-checkboxes__label" for="reason-6">Breach hearing</label>
-      </div>
-
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="reason-7" name="reason" type="checkbox" value="plea">
-        <label class="govuk-label govuk-checkboxes__label" for="reason-7">Plea and Directions Hearing</label>
-      </div>
-
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="reason-8" name="reason" type="checkbox" value="appeal">
-        <label class="govuk-label govuk-checkboxes__label" for="reason-8">Appeal Hearing</label>
-      </div>
-
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="reason-9" name="reason" type="checkbox" value="remittal">
-        <label class="govuk-label govuk-checkboxes__label" for="reason-9">Remittal Hearing</label>
-      </div>
-
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="reason-10" name="reason" type="checkbox" value="newton">
-        <label class="govuk-label govuk-checkboxes__label" for="reason-10">Newton Hearing</label>
-      </div>
-
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="reason-11" name="reason" type="checkbox" value="committal">
-        <label class="govuk-label govuk-checkboxes__label" for="reason-11">Committal Hearing</label>
-      </div>
-
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="reason-12" name="reason" type="checkbox" value="custody-limit">
-        <label class="govuk-label govuk-checkboxes__label" for="reason-12">Custody Time Limit</label>
-      </div>
-
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="reason-13" name="reason" type="checkbox" value="discharged">
-        <label class="govuk-label govuk-checkboxes__label" for="reason-13">Discharged to Court</label>
-      </div>
-
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="reason-14" name="reason" type="checkbox" value="production">
-        <label class="govuk-label govuk-checkboxes__label" for="reason-14">Production (Sentence/Civil Custody)</label>
-      </div>
-
-      <!-- Add more from the list as needed following this pattern -->
-      
-    </div>
-  </fieldset>
+            
+<div class="govuk-form-group">
+  <label class="govuk-label govuk-label--s" for="court-location">
+    Court location
+  </label>
+  <div id="date-hint3" class="govuk-hint">
+    For example, London
+  </div>
+  <select class="govuk-select" name="court-location" id="court-location">
+    <option value="" selected disabled></option>
+    <option value="Birmingham Magistrates' Court - Victoria Law Courts, Newton St, Birmingham B4 7NA">Birmingham Magistrates' Court - Victoria Law Courts, Newton St, Birmingham B4 7NA</option>
+    <option value="Bristol Crown Court - The Law Courts, Small Street, Bristol BS1 1DA">Bristol Crown Court - The Law Courts, Small Street, Bristol BS1 1DA</option>
+    <option value="Cardiff Crown Court - The Law Courts, Cathays Park, Cardiff CF10 3PG">Cardiff Crown Court - The Law Courts, Cathays Park, Cardiff CF10 3PG</option>
+    <option value="Central Criminal Court (Old Bailey) - Old Bailey, London EC4M 7EH">Central Criminal Court (Old Bailey) - Old Bailey, London EC4M 7EH</option>
+    <option value="Court of Session - Parliament House, Parliament Square, Edinburgh EH1 1RQ">Court of Session - Parliament House, Parliament Square, Edinburgh EH1 1RQ</option>
+    <option value="Glasgow Sheriff Court - 1 Carlton Place, Glasgow G5 9DA">Glasgow Sheriff Court - 1 Carlton Place, Glasgow G5 9DA</option>
+    <option value="Leeds Combined Court Centre - The Courthouse, 1 Oxford Row, Leeds LS1 3BG">Leeds Combined Court Centre - The Courthouse, 1 Oxford Row, Leeds LS1 3BG</option>
+    <option value="Leicester Crown Court - 90 Wellington Street, Leicester LE1 6HG">Leicester Crown Court - 90 Wellington Street, Leicester LE1 6HG</option>
+    <option value="Liverpool Crown Court - Derby Square, Liverpool L2 1XA">Liverpool Crown Court - Derby Square, Liverpool L2 1XA</option>
+    <option value="Manchester Crown Court (Crown Square) - Crown Square, Manchester M3 3FL">Manchester Crown Court (Crown Square) - Crown Square, Manchester M3 3FL</option>
+    <option value="Newcastle Civil and Family Courts - Barras Bridge, Newcastle upon Tyne NE1 8QF">Newcastle Civil and Family Courts - Barras Bridge, Newcastle upon Tyne NE1 8QF</option>
+    <option value="Norwich Combined Court Centre - The Law Courts, Bishopgate, Norwich NR3 1UR">Norwich Combined Court Centre - The Law Courts, Bishopgate, Norwich NR3 1UR</option>
+    <option value="Nottingham Crown Court - 60 Canal Street, Nottingham NG1 7EL">Nottingham Crown Court - 60 Canal Street, Nottingham NG1 7EL</option>
+    <option value="Reading Crown Court - Old Shire Hall, The Forbury, Reading RG1 3EH">Reading Crown Court - Old Shire Hall, The Forbury, Reading RG1 3EH</option>
+    <option value="Royal Courts of Justice - Strand, London WC2A 2LL">Royal Courts of Justice - Strand, London WC2A 2LL</option>
+    <option value="Royal Courts of Justice, Belfast - Chichester Street, Belfast BT1 3JF">Royal Courts of Justice, Belfast - Chichester Street, Belfast BT1 3JF</option>
+    <option value="Sheffield Combined Court Centre - 50 West Bar, Sheffield S3 8PH">Sheffield Combined Court Centre - 50 West Bar, Sheffield S3 8PH</option>
+    <option value="Swansea Crown Court - The Guildhall, Swansea SA1 4PF">Swansea Crown Court - The Guildhall, Swansea SA1 4PF</option>
+    <option value="Winchester Crown Court - The Law Courts, Winchester SO23 9EL">Winchester Crown Court - The Law Courts, Winchester SO23 9EL</option>
+  </select>
 </div>
 
-            <div class="govuk-form-group">
+
+
+<div class="govuk-form-group">
+  <label class="govuk-label govuk-label--s" for="appearance-reason">
+    Reason
+  </label>
+  <div id="date-hint4" class="govuk-hint">
+    For example, Court
+  </div>
+  <select class="govuk-select" id="appearance-reason" name="appearance-reason">
+    <option value="" selected disabled></option>
+    <option value="appeal-hearing">Appeal Hearing</option>
+    <option value="bail-application">Bail application</option>
+    <option value="breach-hearing">Breach hearing</option>
+    <option value="committal-hearing">Committal Hearing</option>
+    <option value="cond-release">Cond Release Extended Sentence CJA 2003</option>
+    <option value="court-appearance">Court Appearance</option>
+    <option value="court-appearance-police">Court Appearance - Police Product Order</option>
+    <option value="court-review">Court Review</option>
+    <option value="custody-time-limit">Custody Time Limit</option>
+    <option value="discharge-appeal">Discharge to Court on Appeal</option>
+    <option value="discharged-to-court">Discharged to Court</option>
+    <option value="expedited-breach">Expedited Breach Hearing</option>
+    <option value="newton-hearing">Newton Hearing</option>
+    <option value="not-to-appear">Not to Appear Court Date (Diary Only)</option>
+    <option value="plea-directions">Plea and Directions Hearing</option>
+    <option value="production-sentence">Production (Sentence/Civil Custody)</option>
+    <option value="production-unsentenced">Production of Unsentenced Inmate at Court</option>
+    <option value="remittal-hearing">Remittal Hearing</option>
+    <option value="sentencing">Sentencing</option>
+    <option value="trial">Trial</option>
+    <option value="video-link-appeal">Video Link Appeal</option>
+    <option value="video-link-bail">Video Link Bail Applicaton</option>
+    <option value="video-link-breach">Video Link Breach Hearing</option>
+    <option value="video-link-civil">Video Link Civil Hearing</option>
+    <option value="video-link-committal">Video Link Committal Hearing</option>
+    <option value="video-link-court-appearance">Video Link (Court Appearance)</option>
+    <option value="video-link-court-review">Video Link Court Review</option>
+    <option value="video-link-expedited-breach">Video Link Expedited Breach Hearing</option>
+    <option value="video-link-newton">Video Link Newton Hearing</option>
+    <option value="video-link-plea">Video Link Plea and Direction Hearing</option>
+    <option value="video-link-police">Video Link Police Production</option>
+    <option value="video-link-poc">Video Link Proceeds of Crime Hearing</option>
+    <option value="video-link-production-sentencing">Video Link Production (Sentencing)</option>
+    <option value="video-link-production-unsent">Video Link Production (Unsent.)</option>
+    <option value="video-link-remittal">Video Link Remittal Hearing</option>
+    <option value="video-link-witness">Video Link Witness Production</option>
+    <option value="witness">Witness</option>
+  </select>
+</div>
+
+
+
+            <!-- <div class="govuk-form-group">
               <fieldset class="govuk-fieldset">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                   Status
@@ -264,7 +245,8 @@
                   </div>
                 </div>
               </fieldset>
-            </div>
+            </div> -->
+            
           </div>
         </div>
       </div>
@@ -280,7 +262,7 @@
     <option value="newest" selected>Most recent</option>
     <option value="oldest">Oldest to newest</option>
   </select>
-</div>
+      </div>
       <div class="moj-pagination">
       <nav class="govuk-pagination moj-pagination__pagination " aria-label="Pagination">
         <div class="govuk-pagination__prev">
@@ -324,16 +306,17 @@
       <p class="moj-pagination__results">Showing <span>1</span> to <span>10</span> of <span>22</span> total results</p>
       </div>
       
-    <p id="no-results-msg">There are no results based on your search.</p>
+    <p class="govuk-body" id="no-results-msg">There are no results based on your search.</p>
     
 <div class="cards-container">
   <div class="print-only-header govuk-!-font-weight-bold">
   <div>Name</div>
-  <div>Status</div>
-  <div>Location</div>
-  <div>Date</div>
-  <div>Type</div>
+  <div>Court location</div>
   <div>Reason</div>
+  <div>Date</div>
+  <div>Time</div>
+
+  
 </div>
 <!-- card group container -->
   <!-- Card 1 -->
@@ -342,15 +325,13 @@
     <a href="manage-prisoner-record.html?name=Smith Carlos" class="govuk-link govuk-link--no-visited-state">Smith Carlos - G6462GK</a>
   </div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
-  <div class="card-item govuk-body align-items-right govuk-!-margin-0">
-    <span class="govuk-tag govuk-tag--green govuk-!-font-weight-regular">Completed</span>
-  </div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Crown Court</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Bristol Crown Court - The Law Courts, Small Street, Bristol BS1 1DA</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Video link committal hearing</span></div>
   <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>22 Feb 2025</span></div>
   <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>15:30</span></div>  
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Type of appearance</span><span>Telephone</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Booked on </span><span>Court appearances</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Trial</span></div>
+  
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
 </div>
 
@@ -360,15 +341,12 @@
     <a href="manage-prisoner-record.html?name=Jones Sarah" class="govuk-link govuk-link--no-visited-state">Jones Sarah - G2339GK</a>
   </div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
-  <div class="card-item govuk-body align-items-right govuk-!-margin-0">
-    <span class="govuk-tag govuk-tag--grey govuk-!-font-weight-regular">Expired</span>
-  </div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>County Court</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Birmingham Magistrates' Court - Victoria Law Courts, Newton St, Birmingham B4 7NA</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Court appearance</span></div>
   <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>23 May 2025</span></div>
   <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>13:00</span></div>  
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Type of appearance</span><span>Video Link</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Booked on </span><span>Court appearances</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Sentencing</span></div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
 </div>
 
@@ -378,15 +356,13 @@
     <a href="manage-prisoner-record.html?name=Taylor Liam" class="govuk-link govuk-link--no-visited-state">Taylor Liam - G1977GK</a>
   </div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
-  <div class="card-item govuk-body align-items-right govuk-!-margin-0">
-    <span class="govuk-tag govuk-tag--grey govuk-!-font-weight-regular">Expired</span>
-  </div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Magistrates' Court</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Birmingham Magistrates' Court - Victoria Law Courts, Newton St, Birmingham B4 7NA</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Court appearance</span></div>
   <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>24 Sep 2025</span></div>
   <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>09:30</span></div>  
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Type of appearance</span><span>Video Link</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Booked on </span><span>Court appearances</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Appeal Hearing</span></div>
+  
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
 </div>
 
@@ -396,15 +372,13 @@
     <a href="manage-prisoner-record.html?name=Evans Daisy" class="govuk-link govuk-link--no-visited-state">Evans Daisy - G4099GK</a>
   </div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
-  <div class="card-item govuk-body align-items-right govuk-!-margin-0">
-    <span class="govuk-tag govuk-tag--blue govuk-!-font-weight-regular">Scheduled</span>
-  </div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Family Court</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Cardiff Crown Court - The Law Courts, Cathays Park, Cardiff CF10 3PG</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Court review</span></div>
   <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>26 Oct 2025</span></div>
   <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>11:45</span></div>  
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Type of appearance</span><span>Telephone</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Booked on </span><span>Court appearances</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Discharged to Court</span></div>
+  
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
 </div>
 
@@ -414,15 +388,13 @@
     <a href="manage-prisoner-record.html?name=White Oliver" class="govuk-link govuk-link--no-visited-state">White Oliver - G9396GK</a>
   </div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
-  <div class="card-item govuk-body align-items-right govuk-!-margin-0">
-    <span class="govuk-tag govuk-tag--green govuk-!-font-weight-regular">Completed</span>
-  </div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>County Court</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Cardiff Crown Court - The Law Courts, Cathays Park, Cardiff CF10 3PG</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Court appearance</span></div>
   <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>16 Dec 2025</span></div>
   <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>15:45</span></div>  
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Type of appearance</span><span>Telephone</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Booked on </span><span>Court appearances</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Discharged to Court</span></div>
+  
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
 </div>
 
@@ -432,15 +404,12 @@
     <a href="manage-prisoner-record.html?name=Perez Chloe" class="govuk-link govuk-link--no-visited-state">Perez Chloe - G1534GK</a>
   </div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
-  <div class="card-item govuk-body align-items-right govuk-!-margin-0">
-    <span class="govuk-tag govuk-tag--green govuk-!-font-weight-regular">Completed</span>
-  </div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Crown Court</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Central Criminal Court (Old Bailey) - Old Bailey, London EC4M 7EH</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Discharged to court</span></div>
   <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>28 Feb 2025</span></div>
   <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>14:30</span></div>  
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Type of appearance</span><span>Telephone</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Booked on </span><span>Court appearances</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Video Link (Court Appearance)</span></div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
 </div>
 
@@ -450,15 +419,12 @@
     <a href="manage-prisoner-record.html?name=Clarke Lily" class="govuk-link govuk-link--no-visited-state">Clarke Lily - G2782GK</a>
   </div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
-  <div class="card-item govuk-body align-items-right govuk-!-margin-0">
-    <span class="govuk-tag govuk-tag--grey govuk-!-font-weight-regular">Expired</span>
-  </div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Magistrates' Court</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Central Criminal Court (Old Bailey) - Old Bailey, London EC4M 7EH</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Video link witness production</span></div>
   <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>24 Jun 2025</span></div>
   <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>15:15</span></div>  
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Type of appearance</span><span>Video Link</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Booked on </span><span>Court appearances</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Video Link Civil Hearing</span></div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
 </div>
 
@@ -469,14 +435,13 @@
     <a href="manage-prisoner-record.html?name=Walker Ethan" class="govuk-link govuk-link--no-visited-state">Walker Ethan - G5404GK</a>
   </div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
-  <div class="card-item govuk-body align-items-right govuk-!-margin-0">
-    <span class="govuk-tag govuk-tag--blue govuk-!-font-weight-regular">Scheduled</span>
-  </div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Crown Court</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Date and time</span><span>18 Dec 2025 at 09:45</span></div>  
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Type of appearance</span><span>Video Link</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Booked on </span><span>Court appearances</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Court Appearance</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Bristol Crown Court - The Law Courts, Small Street, Bristol BS1 1DA</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Cond release extended sentence cja 2003</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>18 Dec 2025</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>09:45</span></div>  
+  
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
 </div>
 
@@ -486,14 +451,12 @@
     <a href="manage-prisoner-record.html?name=Wright Ava" class="govuk-link govuk-link--no-visited-state">Wright Ava - G5219GK</a>
   </div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
-  <div class="card-item govuk-body align-items-right govuk-!-margin-0">
-    <span class="govuk-tag govuk-tag--blue govuk-!-font-weight-regular">Scheduled</span>
-  </div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Crown Court</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Date and time</span><span>07 Sep 2025 at 15:30</span></div>  
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Type of appearance</span><span>In person</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Booked on </span><span>Court appearances</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Appeal Hearing</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Bristol Crown Court - The Law Courts, Small Street, Bristol BS1 1DA</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Cond release extended sentence cja 2003</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>07 Sep 2025</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>15:30</span></div>  
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
 </div>
 
@@ -503,14 +466,12 @@
     <a href="manage-prisoner-record.html?name=Campbell Theo" class="govuk-link govuk-link--no-visited-state">Campbell Theo - G4043GK</a>
   </div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
-  <div class="card-item govuk-body align-items-right govuk-!-margin-0">
-    <span class="govuk-tag govuk-tag--green govuk-!-font-weight-regular">Completed</span>
-  </div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Family Court</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Date and time</span><span>14 May 2025 at 16:45</span></div>  
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Type of appearance</span><span>Telephone</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Booked on </span><span>Court appearances</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Video Link Production (Sentencing)</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Court of Session - Parliament House, Parliament Square, Edinburgh EH1 1RQ</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Breach hearing</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>14 May 2025</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>16:45</span></div>  
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
 </div>
 
@@ -520,14 +481,12 @@
     <a href="manage-prisoner-record.html?name=Parker Phoebe" class="govuk-link govuk-link--no-visited-state">Parker Phoebe - G5553GK</a>
   </div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
-  <div class="card-item govuk-body align-items-right govuk-!-margin-0">
-    <span class="govuk-tag govuk-tag--blue govuk-!-font-weight-regular">Scheduled</span>
-  </div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Family Court</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Date and time</span><span>01 Mar 2025 at 10:15</span></div>  
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Type of appearance</span><span>Video Link</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Booked on </span><span>Court appearances</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Expedited Breach Hearing</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Court of Session - Parliament House, Parliament Square, Edinburgh EH1 1RQ</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Video link newton hearing</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>01 Mar 2025</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>10:15</span></div>  
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
 </div>
 
@@ -537,14 +496,13 @@
     <a href="manage-prisoner-record.html?name=Thomas Leo" class="govuk-link govuk-link--no-visited-state">Thomas Leo - G5694GK</a>
   </div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
-  <div class="card-item govuk-body align-items-right govuk-!-margin-0">
-    <span class="govuk-tag govuk-tag--green govuk-!-font-weight-regular">Completed</span>
-  </div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Crown Court</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Date and time</span><span>19 Mar 2025 at 10:45</span></div>  
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Type of appearance</span><span>In person</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Booked on </span><span>Court appearances</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Video Link Plea and Direction Hearing</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Glasgow Sheriff Court - 1 Carlton Place, Glasgow G5 9DA</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Discharge to court on appeal</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>19 Mar 2025</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>10:45</span></div>  
+  
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
 </div>
 
@@ -554,14 +512,12 @@
     <a href="manage-prisoner-record.html?name=Hall Isabella" class="govuk-link govuk-link--no-visited-state">Hall Isabella - G6987GK</a>
   </div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
-  <div class="card-item govuk-body align-items-right govuk-!-margin-0">
-    <span class="govuk-tag govuk-tag--blue govuk-!-font-weight-regular">Scheduled</span>
-  </div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>County Court</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Date and time</span><span>17 Aug 2025 at 14:30</span></div>  
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Type of appearance</span><span>Video Link</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Booked on </span><span>Court appearances</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Video Link Plea and Direction Hearing</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Glasgow Sheriff Court - 1 Carlton Place, Glasgow G5 9DA</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Court appearance</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>17 Aug 2025</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>14:30</span></div>  
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
 </div>
 
@@ -571,16 +527,15 @@
     <a href="manage-prisoner-record.html?name=Roberts Mia" class="govuk-link govuk-link--no-visited-state">Roberts Mia - G3923GK</a>
   </div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
-  <div class="card-item govuk-body align-items-right govuk-!-margin-0">
-    <span class="govuk-tag govuk-tag--blue govuk-!-font-weight-regular">Scheduled</span>
-  </div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Crown Court</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Date and time</span><span>10 Nov 2025 at 13:45</span></div>  
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Type of appearance</span><span>Video Link</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Booked on </span><span>Court appearances</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Video Link Appeal</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span>Leicester Crown Court - 90 Wellington Street, Leicester LE1 6HG<span></span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Witness</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>10 Nov 2025</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>13:45</span></div>  
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
 </div>
+
 
 <!-- Card 15 -->
 <div class="card-group-custom">
@@ -588,14 +543,12 @@
     <a href="manage-prisoner-record.html?name=Phillips Archie" class="govuk-link govuk-link--no-visited-state">Phillips Archie - G6526GK</a>
   </div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
-  <div class="card-item govuk-body align-items-right govuk-!-margin-0">
-    <span class="govuk-tag govuk-tag--green govuk-!-font-weight-regular">Completed</span>
-  </div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Magistrates' Court</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Date and time</span><span>04 Dec 2025 at 16:45</span></div>  
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Type of appearance</span><span>Video Link</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Booked on </span><span>Court appearances</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Breach hearing</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Leicester Crown Court - 90 Wellington Street, Leicester LE1 6HG</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Court appearance</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>04 Dec 2025</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>16:45</span></div>  
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
 </div>
 
@@ -605,14 +558,12 @@
     <a href="manage-prisoner-record.html?name=Bennett Noah" class="govuk-link govuk-link--no-visited-state">Bennett Noah - G1664GK</a>
   </div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
-  <div class="card-item govuk-body align-items-right govuk-!-margin-0">
-    <span class="govuk-tag govuk-tag--grey govuk-!-font-weight-regular">Expired</span>
-  </div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Magistrates' Court</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Date and time</span><span>15 Oct 2025 at 09:30</span></div>  
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Type of appearance</span><span>Video Link</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Booked on </span><span>Court appearances</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Video Link Committal Hearing</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Manchester Crown Court (Crown Square) - Crown Square, Manchester M3 3FL</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Court appearance</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>15 Oct 2025</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>09:30</span></div>  
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
 </div>
 
@@ -622,14 +573,12 @@
     <a href="manage-prisoner-record.html?name=Gray Sophie" class="govuk-link govuk-link--no-visited-state">Gray Sophie - G2779GK</a>
   </div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
-  <div class="card-item govuk-body align-items-right govuk-!-margin-0">
-    <span class="govuk-tag govuk-tag--green govuk-!-font-weight-regular">Completed</span>
-  </div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Crown Court</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Date and time</span><span>15 Jun 2025 at 16:15</span></div>  
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Type of appearance</span><span>In person</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Booked on </span><span>Court appearances</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Plea and Directions Hearing</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Manchester Crown Court (Crown Square) - Crown Square, Manchester M3 3FL</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Court appearance</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>15 Jun 2025</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>16:15</span></div>  
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
 </div>
 
@@ -639,14 +588,12 @@
     <a href="manage-prisoner-record.html?name=Foster Jack" class="govuk-link govuk-link--no-visited-state">Foster Jack - G5425GK</a>
   </div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
-  <div class="card-item govuk-body align-items-right govuk-!-margin-0">
-    <span class="govuk-tag govuk-tag--blue govuk-!-font-weight-regular">Scheduled</span>
-  </div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>County Court</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Date and time</span><span>03 May 2025 at 16:30</span></div>  
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Type of appearance</span><span>Telephone</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Booked on </span><span>Court appearances</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Cond Release Extended Sentence CJA 2003</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Newcastle Civil and Family Courts - Barras Bridge, Newcastle upon Tyne NE1 8QF</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Court appearance</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>03 May 2025</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>16:30</span></div>  
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
 </div>
 
@@ -656,14 +603,12 @@
     <a href="manage-prisoner-record.html?name=James Emily" class="govuk-link govuk-link--no-visited-state">James Emily - G6166GK</a>
   </div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
-  <div class="card-item govuk-body align-items-right govuk-!-margin-0">
-    <span class="govuk-tag govuk-tag--green govuk-!-font-weight-regular">Completed</span>
-  </div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>High Court</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Date and time</span><span>10 Jul 2025 at 16:30</span></div>  
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Type of appearance</span><span>In person</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Booked on </span><span>Court appearances</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Video Link Proceeds of Crime Hearing</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Newcastle Civil and Family Courts - Barras Bridge, Newcastle upon Tyne NE1 8QF</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Court appearance</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>10 Jul 2025</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>16:30</span></div>  
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
 </div>
 
@@ -673,251 +618,555 @@
     <a href="manage-prisoner-record.html?name=Cooper Mason" class="govuk-link govuk-link--no-visited-state">Cooper Mason - G3392GK</a>
   </div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
-  <div class="card-item govuk-body align-items-right govuk-!-margin-0">
-    <span class="govuk-tag govuk-tag--grey govuk-!-font-weight-regular">Expired</span>
-  </div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Family Court</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Date and time</span><span>26 Dec 2025 at 14:00</span></div>  
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Type of appearance</span><span>Video Link</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Booked on </span><span>Court appearances</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Nottingham Crown Court - 60 Canal Street, Nottingham NG1 7EL</span></div>
   <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Witness</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>26 Dec 2025</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>14:00</span></div>  
+  
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
 </div>
 
 <!-- Card 21 -->
 <div class="card-group-custom">
   <div class="card-item govuk-body govuk-!-font-weight-bold govuk-!-margin-0">
-    <a href="manage-prisoner-record.html?name=Morgan Ella" class="govuk-link govuk-link--no-visited-state">Morgan Ella - G6035GK</a>
+    <a href="manage-prisoner-record.html?name=Mitchell Harry" class="govuk-link govuk-link--no-visited-state">Mitchell Harry - G8821GK</a>
   </div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
-  <div class="card-item govuk-body align-items-right govuk-!-margin-0">
-    <span class="govuk-tag govuk-tag--grey govuk-!-font-weight-regular">Expired</span>
-  </div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>High Court</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Date and time</span><span>24 Apr 2025 at 09:45</span></div>  
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Type of appearance</span><span>Telephone</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Booked on </span><span>Court appearances</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Plea and Directions Hearing</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Nottingham Crown Court - 60 Canal Street, Nottingham NG1 7EL</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Video link expedited breach hearing</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>12 Jan 2026</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>10:00</span></div>  
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
 </div>
 
 <!-- Card 22 -->
 <div class="card-group-custom">
   <div class="card-item govuk-body govuk-!-font-weight-bold govuk-!-margin-0">
-    <a href="manage-prisoner-record.html?name=Ward Harry" class="govuk-link govuk-link--no-visited-state">Ward Harry - G8737GK</a>
+    <a href="manage-prisoner-record.html?name=Young Maya" class="govuk-link govuk-link--no-visited-state">Young Maya - G4432GK</a>
   </div>
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
-  <div class="card-item govuk-body align-items-right govuk-!-margin-0">
-    <span class="govuk-tag govuk-tag--blue govuk-!-font-weight-regular">Scheduled</span>
-  </div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Magistrates' Court</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Date and time</span><span>23 Oct 2025 at 09:15</span></div>  
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Type of appearance</span><span>Video Link</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Booked on </span><span>Court appearances</span></div>
-  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Video Link Plea and Direction Hearing</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Royal Courts of Justice - Strand, London WC2A 2LL</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Plea and directions hearing</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>05 Nov 2025</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>14:15</span></div>  
   <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
 </div>
-</div>
+
 <!-- Card 23 -->
+<div class="card-group-custom">
+  <div class="card-item govuk-body govuk-!-font-weight-bold govuk-!-margin-0">
+    <a href="manage-prisoner-record.html?name=Baker George" class="govuk-link govuk-link--no-visited-state">Baker George - G9012GK</a>
+  </div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Bristol Crown Court - The Law Courts, Small Street, Bristol BS1 1DA</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Court appearance</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>22 Aug 2025</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>09:45</span></div>  
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+</div>
 
+<!-- Card 24 -->
+<div class="card-group-custom">
+  <div class="card-item govuk-body govuk-!-font-weight-bold govuk-!-margin-0">
+    <a href="manage-prisoner-record.html?name=Hill Rosie" class="govuk-link govuk-link--no-visited-state">Hill Rosie - G3321GK</a>
+  </div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Royal Courts of Justice - Strand, London WC2A 2LL</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Video link police production</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>14 Feb 2026</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>11:30</span></div>  
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+</div>
 
+<!-- Card 25 -->
+<div class="card-group-custom">
+  <div class="card-item govuk-body govuk-!-font-weight-bold govuk-!-margin-0">
+    <a href="manage-prisoner-record.html?name=Ward Finley" class="govuk-link govuk-link--no-visited-state">Ward Finley - G7765GK</a>
+  </div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Sheffield Combined Court Centre - 50 West Bar, Sheffield S3 8PH</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Court appearance</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>30 Sep 2025</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>15:00</span></div>  
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+</div>
+
+<!-- Card 26 -->
+<div class="card-group-custom">
+  <div class="card-item govuk-body govuk-!-font-weight-bold govuk-!-margin-0">
+    <a href="manage-prisoner-record.html?name=Morris Eva" class="govuk-link govuk-link--no-visited-state">Morris Eva - G2219GK</a>
+  </div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Sheffield Combined Court Centre - 50 West Bar, Sheffield S3 8PH</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Production (sentence/civil custody)</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>19 Mar 2026</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>10:15</span></div>  
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+</div>
+
+<!-- Card 27 -->
+<div class="card-group-custom">
+  <div class="card-item govuk-body govuk-!-font-weight-bold govuk-!-margin-0">
+    <a href="manage-prisoner-record.html?name=Watson Oscar" class="govuk-link govuk-link--no-visited-state">Watson Oscar - G5540GK</a>
+  </div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Swansea Crown Court - The Guildhall, Swansea SA1 4PF</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Video link breach hearing</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>02 Jul 2025</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>14:00</span></div>  
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+</div>
+
+<!-- Card 28 -->
+<div class="card-group-custom">
+  <div class="card-item govuk-body govuk-!-font-weight-bold govuk-!-margin-0">
+    <a href="manage-prisoner-record.html?name=Brooks Amelie" class="govuk-link govuk-link--no-visited-state">Brooks Amelie - G8876GK</a>
+  </div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Swansea Crown Court - The Guildhall, Swansea SA1 4PF</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Court appearance</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>11 Apr 2026</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>13:30</span></div>  
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+</div>
+
+<!-- Card 29 -->
+<div class="card-group-custom">
+  <div class="card-item govuk-body govuk-!-font-weight-bold govuk-!-margin-0">
+    <a href="manage-prisoner-record.html?name=Kelly Jude" class="govuk-link govuk-link--no-visited-state">Kelly Jude - G1123GK</a>
+  </div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Winchester Crown Court - The Law Courts, Winchester SO23 9EL</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Bail Application</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>18 Dec 2025</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>09:00</span></div>  
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+</div>
+
+<!-- Card 30 -->
+<div class="card-group-custom">
+  <div class="card-item govuk-body govuk-!-font-weight-bold govuk-!-margin-0">
+    <a href="manage-prisoner-record.html?name=Cook Clara" class="govuk-link govuk-link--no-visited-state">Cook Clara - G9981GK</a>
+  </div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Court location</span><span>Royal Courts of Justice - Strand, London WC2A 2LL</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>Court appearance</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>05 May 2026</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>15:45</span></div>  
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+</div>
 
     </div>
   </div>
 </div>
 
 <script>
+
 document.addEventListener('DOMContentLoaded', () => {
-  const applyBtn = document.getElementById('applyFilters');
-  const searchForm = document.getElementById('search-form');
-  const sortSelect = document.getElementById('sort');
-  const clearBtn = document.querySelector('.moj-filter__heading-action a');
-  const cards = Array.from(document.querySelectorAll('.card-group-custom'));
-  
-  const selectedFiltersContainer = document.querySelector('.moj-filter__selected');
-  const paginationContainer = document.querySelector('.moj-pagination');
-  const resultsInfo = document.querySelector('.moj-pagination__results');
-  const prevButton = document.querySelector('.govuk-pagination__prev');
-  const nextButton = document.querySelector('.govuk-pagination__next');
-  
-  let currentPage = 1;
-  const resultsPerPage = 10;
-  let totalPages = 1;
-
-  const parseInputDate = (dateStr) => {
-    if (!dateStr) return null;
-    const [day, month, year] = dateStr.split('/');
-    return new Date(year, month - 1, day);
-  };
-
-  // --- UPDATED TAGS FUNCTIONALITY ---
-  const updateTags = () => {
-  if (!selectedFiltersContainer) return;
-
-  const tagLists = selectedFiltersContainer.querySelectorAll('.moj-filter-tags');
-  const headings = selectedFiltersContainer.querySelectorAll('.govuk-heading-s');
-  
-  // Map our 3 groups
-  const [appearanceList, reasonList, statusList] = tagLists;
-  const [appearanceHead, reasonHead, statusHead] = headings;
-
-  // Clear existing tags
-  tagLists.forEach(list => list.innerHTML = '');
-
-  const createTag = (checkbox, container) => {
-    const label = checkbox.closest('.govuk-checkboxes__item').querySelector('label');
-    const labelText = label ? label.textContent.trim() : checkbox.value;
+    // Selectors
+    const searchForm = document.getElementById('search-form');
+    const searchInput = document.getElementById('searchTerm');
+    const dateFromInput = document.getElementById('date');
+    const dateToInput = document.getElementById('date2');
+    const courtInput = document.getElementById('court-location-autocomplete');
+    const reasonInput = document.getElementById('appearance-reason-autocomplete');
+    const statusCheckboxes = document.querySelectorAll('input[name="status"]');
+    const sortSelect = document.getElementById('sort');
+    const applyFiltersBtn = document.getElementById('applyFilters');
+    const clearFiltersBtn = document.querySelector('.moj-filter__heading-action a');
+    const selectedFiltersSection = document.querySelector('.moj-filter__selected');
+    const noResultsMsg = document.getElementById('no-results-msg');
     
-    const li = document.createElement('li');
-    li.innerHTML = `<a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> ${labelText}</a>`;
+    // Tag Containers (Assumes order in HTML: Court, Reason, Status)
+    const tagLists = document.querySelectorAll('.moj-filter-tags');
+    const courtTagsList = tagLists[0];
+    const reasonTagsList = tagLists[1];
+    const statusTagsList = tagLists[2];
+
+    let currentPage = 1;
+    const resultsPerPage = 10;
+    let filteredCards = [];
+
+    const parseDate = (str) => {
+        if (!str || str.trim() === "") return null;
+        const t = str.trim();
+        if (t.includes('/')) {
+            const [d, m, y] = t.split('/');
+            return new Date(y, m - 1, d);
+        }
+        const d = Date.parse(t);
+        return isNaN(d) ? null : new Date(d);
+    };
+
+    /**
+     * Toggles visibility of the heading (h3) and list (ul) based on content
+     */
+    const updateCategoryVisibility = (ulElement) => {
+        if (!ulElement) return;
+        const heading = ulElement.previousElementSibling;
+        const hasTags = ulElement.children.length > 0;
+        const displayStyle = hasTags ? 'block' : 'none';
+        
+        ulElement.style.display = displayStyle;
+        if (heading && heading.tagName === 'H3') {
+            heading.style.display = displayStyle;
+        }
+    };
+
+    /**
+     * Helper to Create a Tag
+     */
+    const createTag = (text, onRemove) => {
+        const li = document.createElement('li');
+        li.innerHTML = `<a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove</span>${text}</a>`;
+        li.querySelector('a').onclick = (e) => {
+            e.preventDefault();
+            onRemove();
+            filterAndSort();
+        };
+        return li;
+    };
+
+    const filterAndSort = () => {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        const dFrom = parseDate(dateFromInput.value);
+        const dTo = parseDate(dateToInput.value);
+        const courtSearch = courtInput.value.toLowerCase().trim();
+        const reasonSearch = reasonInput.value.toLowerCase().trim();
+        const sortOrder = sortSelect.value;
+        const selectedStatuses = Array.from(statusCheckboxes).filter(cb => cb.checked);
+
+        const allCards = Array.from(document.querySelectorAll('.card-group-custom'));
+
+        // 1. Filter and Scrape
+        filteredCards = allCards.filter(card => {
+            const nameText = card.querySelector('a')?.textContent.toLowerCase() || "";
+            const cardStatus = card.querySelector('.govuk-tag')?.textContent.trim().toLowerCase() || "";
+            let cardDate = null, cardCourt = "", cardReason = "";
+
+            card.querySelectorAll('.card-item').forEach(item => {
+                const text = item.innerText;
+                if (text.includes('Date')) cardDate = parseDate(text.replace('Date', ''));
+                if (text.includes('Court location')) cardCourt = text.toLowerCase();
+                if (text.includes('Reason')) cardReason = text.toLowerCase();
+            });
+
+            const matchS = !searchTerm || nameText.includes(searchTerm);
+            const matchC = !courtSearch || cardCourt.includes(courtSearch);
+            const matchR = !reasonSearch || cardReason.includes(reasonSearch);
+            const matchSt = selectedStatuses.length === 0 || selectedStatuses.some(cb => cardStatus.includes(cb.nextElementSibling.textContent.trim().toLowerCase()));
+            
+            let matchD = true;
+            if (dFrom && (!cardDate || cardDate < dFrom)) matchD = false;
+            if (dTo && (!cardDate || cardDate > dTo)) matchD = false;
+
+            card._dateValue = cardDate ? cardDate.getTime() : 0;
+            return matchS && matchC && matchR && matchSt && matchD;
+        });
+
+        // 2. Sort
+        filteredCards.sort((a, b) => sortOrder === 'newest' ? b._dateValue - a._dateValue : a._dateValue - b._dateValue);
+
+        // 3. Update UI Tags and Toggle Headings
+        if (courtTagsList) {
+            courtTagsList.innerHTML = '';
+            if (courtInput.value) courtTagsList.appendChild(createTag(courtInput.value, () => courtInput.value = ""));
+            updateCategoryVisibility(courtTagsList);
+        }
+        if (reasonTagsList) {
+            reasonTagsList.innerHTML = '';
+            if (reasonInput.value) reasonTagsList.appendChild(createTag(reasonInput.value, () => reasonInput.value = ""));
+            updateCategoryVisibility(reasonTagsList);
+        }
+        if (statusTagsList) {
+            statusTagsList.innerHTML = '';
+            selectedStatuses.forEach(cb => {
+                statusTagsList.appendChild(createTag(cb.nextElementSibling.textContent.trim(), () => cb.checked = false));
+            });
+            updateCategoryVisibility(statusTagsList);
+        }
+
+        const isFiltering = searchTerm || dFrom || dTo || courtSearch || reasonSearch || selectedStatuses.length > 0;
+        selectedFiltersSection.style.display = isFiltering ? 'block' : 'none';
+
+        currentPage = 1;
+        renderPage();
+    };
+
+    const renderPage = () => {
+        const total = filteredCards.length;
+        const totalPages = Math.ceil(total / resultsPerPage) || 1;
+        const startIdx = (currentPage - 1) * resultsPerPage;
+        const endIdx = Math.min(startIdx + resultsPerPage, total);
+
+        document.querySelectorAll('.card-group-custom').forEach(c => c.style.display = 'none');
+        filteredCards.slice(startIdx, endIdx).forEach(card => card.style.display = 'grid');
+
+        noResultsMsg.style.display = total === 0 ? 'block' : 'none';
+        
+        const paginationElem = document.querySelector('.moj-pagination');
+        if (paginationElem) paginationElem.style.display = total === 0 ? 'none' : 'block';
+        
+        // Update Pagination Summary and Buttons
+        const resultsSummary = document.querySelector('.moj-pagination__results');
+        if (resultsSummary) {
+            resultsSummary.innerHTML = `Showing <span>${total === 0 ? 0 : startIdx + 1}</span> to <span>${endIdx}</span> of <span>${total}</span> total results`;
+        }
+
+        const prevBtn = document.querySelector('.govuk-pagination__prev');
+        const nextBtn = document.querySelector('.govuk-pagination__next');
+        if (prevBtn) prevBtn.style.display = currentPage === 1 ? 'none' : 'flex';
+        if (nextBtn) nextBtn.style.display = currentPage === totalPages ? 'none' : 'flex';
+
+        // Re-render page numbers
+        const list = document.querySelector('.govuk-pagination__list');
+        if (list) {
+            list.innerHTML = '';
+            for (let i = 1; i <= totalPages; i++) {
+                const li = document.createElement('li');
+                li.className = `govuk-pagination__item ${i === currentPage ? 'govuk-pagination__item--current' : ''}`;
+                li.innerHTML = `<a class="govuk-link govuk-pagination__link" href="#">${i}</a>`;
+                li.onclick = (e) => { e.preventDefault(); currentPage = i; renderPage(); window.scrollTo(0,0); };
+                list.appendChild(li);
+            }
+        }
+    };
+
+    // Listeners
+    searchForm?.addEventListener('submit', (e) => { e.preventDefault(); filterAndSort(); });
+    applyFiltersBtn?.addEventListener('click', (e) => { e.preventDefault(); filterAndSort(); });
+    sortSelect?.addEventListener('change', filterAndSort);
     
-    li.querySelector('a').addEventListener('click', (e) => {
-      e.preventDefault();
-      checkbox.checked = false;
-      runAllFilters(); // Re-run filtering logic
-    });
-    container.appendChild(li);
-  };
+    document.querySelector('.govuk-pagination__prev').onclick = (e) => { e.preventDefault(); if(currentPage > 1) { currentPage--; renderPage(); }};
+    document.querySelector('.govuk-pagination__next').onclick = (e) => { e.preventDefault(); if(currentPage < Math.ceil(filteredCards.length/resultsPerPage)) { currentPage++; renderPage(); }};
 
-  // Populate the 3 groups based on checkbox name attributes
-  document.querySelectorAll('input[name="type"]:checked').forEach(cb => createTag(cb, appearanceList));
-  document.querySelectorAll('input[name="reason"]:checked').forEach(cb => createTag(cb, reasonList));
-  document.querySelectorAll('input[name="status"]:checked').forEach(cb => createTag(cb, statusList));
-
-  // Toggle heading visibility based on if the list has tags
-  appearanceHead.style.display = appearanceList.children.length > 0 ? 'block' : 'none';
-  reasonHead.style.display     = reasonList.children.length > 0 ? 'block' : 'none';
-  statusHead.style.display     = statusList.children.length > 0 ? 'block' : 'none';
-
-  // Check for date values
-  const dateFromValue = document.getElementById('date').value.trim();
-  const dateToValue = document.getElementById('date2').value.trim();
-  const hasDateFilter = dateFromValue !== "" || dateToValue !== "";
-
-  // Show container if there are any tags OR date filters
-  const totalTags = appearanceList.children.length + reasonList.children.length + statusList.children.length;
-  selectedFiltersContainer.style.display = (totalTags > 0 || hasDateFilter) ? 'block' : 'none';
-};
-
-
-  const runAllFilters = (e) => {
-    if (e) e.preventDefault();
-    updateTags();
-
-    const searchTerm = document.getElementById('searchTerm').value.trim().toLowerCase();
-    const sortOrder = sortSelect.value;
-    const dateFrom = parseInputDate(document.getElementById('date').value);
-    const dateTo = parseInputDate(document.getElementById('date2').value);
-
-    const getCheckedValues = (name) => Array.from(document.querySelectorAll(`input[name="${name}"]:checked`))
-      .map(cb => cb.closest('.govuk-checkboxes__item').querySelector('label').textContent.trim().toLowerCase());
-
-    const selectedTypes = getCheckedValues('type');
-    const selectedReasons = getCheckedValues('reason');
-    const selectedStatuses = getCheckedValues('status');
-
-    let filteredCards = cards.filter(card => {
-      const cardName = card.querySelector('.card-item a').textContent.toLowerCase();
-      const cardStatus = card.querySelector('.govuk-tag').textContent.toLowerCase();
-      const cardType = card.querySelector('.card-item:nth-child(6) span:last-child').textContent.toLowerCase();
-      const cardReason = card.querySelector('.card-item:nth-child(8) span:last-child').textContent.toLowerCase();
-      
-      const cardDateStr = card.querySelector('.card-item:nth-child(5) span:last-child').textContent.split(' at ')[0];
-      const cardDate = new Date(cardDateStr);
-      cardDate.setHours(0, 0, 0, 0);
-
-      const matchesSearch = searchTerm === "" || cardName.includes(searchTerm);
-      const matchesType = selectedTypes.length === 0 || selectedTypes.includes(cardType);
-      const matchesStatus = selectedStatuses.length === 0 || selectedStatuses.includes(cardStatus);
-      const matchesReason = selectedReasons.length === 0 || selectedReasons.includes(cardReason);
-      const matchesDateFrom = !dateFrom || cardDate >= dateFrom;
-      const matchesDateTo = !dateTo || cardDate <= dateTo;
-
-      return matchesSearch && matchesType && matchesStatus && matchesReason && matchesDateFrom && matchesDateTo;
+    clearFiltersBtn?.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (searchForm) searchForm.reset();
+        searchInput.value = ''; dateFromInput.value = ''; dateToInput.value = '';
+        courtInput.value = ''; reasonInput.value = '';
+        statusCheckboxes.forEach(cb => cb.checked = false);
+        sortSelect.value = 'newest';
+        filterAndSort();
     });
 
-    filteredCards.sort((a, b) => {
-      const dateA = new Date(a.querySelector('.card-item:nth-child(5) span:last-child').textContent.split(' at ')[0]);
-      const dateB = new Date(b.querySelector('.card-item:nth-child(5) span:last-child').textContent.split(' at ')[0]);
-      return sortOrder === 'newest' ? dateB - dateA : dateA - dateB;
-    });
-
-    totalPages = Math.ceil(filteredCards.length / resultsPerPage);
-    if (currentPage > totalPages) currentPage = 1;
-
-    const container = document.querySelector('.cards-container'); 
-    let noResultsMsg = document.getElementById('no-results-msg');
-    cards.forEach(c => c.style.display = 'none');
-
-    if (filteredCards.length === 0) {
-      if (!noResultsMsg) {
-        noResultsMsg = document.createElement('p');
-        noResultsMsg.id = 'no-results-msg';
-        noResultsMsg.className = 'govuk-body govuk-!-font-weight-bold';
-        noResultsMsg.textContent = 'There are no results that match your search or filter criteria.';
-        container.appendChild(noResultsMsg);
-      }
-      paginationContainer.style.display = 'none';
-      return;
-    } else {
-      if (noResultsMsg) noResultsMsg.remove();
-      paginationContainer.style.display = 'flex';
-    }
-
-    const start = (currentPage - 1) * resultsPerPage;
-    const end = start + resultsPerPage;
-    filteredCards.slice(start, end).forEach(c => c.style.display = '');
-
-    resultsInfo.innerHTML = `Showing <span>${start + 1}</span> to <span>${Math.min(end, filteredCards.length)}</span> of <span>${filteredCards.length}</span> total results`;
-    
-    document.querySelectorAll('.govuk-pagination__item').forEach(item => {
-      const pageNum = parseInt(item.querySelector('a').textContent.trim());
-      item.classList.toggle('govuk-pagination__item--current', pageNum === currentPage);
-      item.style.display = pageNum > totalPages ? 'none' : 'flex';
-    });
-
-    prevButton.style.display = (currentPage === 1) ? 'none' : 'flex';
-    nextButton.style.display = (currentPage === totalPages || totalPages === 0) ? 'none' : 'flex';
-  };
-
-  // Event Listeners
-  document.querySelectorAll('.govuk-pagination__item a').forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentPage = parseInt(link.textContent.trim());
-      runAllFilters();
-      window.scrollTo(0, 0);
-    });
-  });
-
-  prevButton.querySelector('a').addEventListener('click', (e) => {
-    e.preventDefault();
-    if (currentPage > 1) { currentPage--; runAllFilters(); window.scrollTo(0, 0); }
-  });
-
-  nextButton.querySelector('a').addEventListener('click', (e) => {
-    e.preventDefault();
-    if (currentPage < totalPages) { currentPage++; runAllFilters(); window.scrollTo(0, 0); }
-  });
-
-  sortSelect.addEventListener('change', () => { currentPage = 1; runAllFilters(); });
-  applyBtn.addEventListener('click', () => { currentPage = 1; runAllFilters(); });
-  searchForm.addEventListener('submit', (e) => { e.preventDefault(); currentPage = 1; runAllFilters(); });
-  
-  clearBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    document.getElementById('searchTerm').value = '';
-    document.getElementById('date').value = '';
-    document.getElementById('date2').value = '';
-    document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
-    sortSelect.selectedIndex = 0;
-    currentPage = 1;
-    runAllFilters();
-  });
-
-  runAllFilters();
+    filterAndSort(); // Initial Run
 });
-
 
 </script>
 {% endblock %}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+//   const applyBtn = document.getElementById('applyFilters');
+//   const searchForm = document.getElementById('search-form');
+//   const sortSelect = document.getElementById('sort');
+//   const clearBtn = document.querySelector('.moj-filter__heading-action a');
+//   const cards = Array.from(document.querySelectorAll('.card-group-custom'));
+  
+//   const selectedFiltersContainer = document.querySelector('.moj-filter__selected');
+//   const paginationContainer = document.querySelector('.moj-pagination');
+//   const resultsInfo = document.querySelector('.moj-pagination__results');
+//   const prevButton = document.querySelector('.govuk-pagination__prev');
+//   const nextButton = document.querySelector('.govuk-pagination__next');
+  
+//   let currentPage = 1;
+//   const resultsPerPage = 10;
+//   let totalPages = 1;
+
+//   const parseInputDate = (dateStr) => {
+//     if (!dateStr) return null;
+//     const [day, month, year] = dateStr.split('/');
+//     return new Date(year, month - 1, day);
+//   };
+
+//   // --- UPDATED TAGS FUNCTIONALITY ---
+//   const updateTags = () => {
+//   if (!selectedFiltersContainer) return;
+
+//   const tagLists = selectedFiltersContainer.querySelectorAll('.moj-filter-tags');
+//   const headings = selectedFiltersContainer.querySelectorAll('.govuk-heading-s');
+  
+//   // Map our 3 groups
+//   const [appearanceList, reasonList, statusList] = tagLists;
+//   const [appearanceHead, reasonHead, statusHead] = headings;
+
+//   // Clear existing tags
+//   tagLists.forEach(list => list.innerHTML = '');
+
+//   const createTag = (checkbox, container) => {
+//     const label = checkbox.closest('.govuk-checkboxes__item').querySelector('label');
+//     const labelText = label ? label.textContent.trim() : checkbox.value;
+    
+//     const li = document.createElement('li');
+<!-- //     li.innerHTML = `<a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> ${labelText}</a>`; -->
+    
+//     li.querySelector('a').addEventListener('click', (e) => {
+//       e.preventDefault();
+//       checkbox.checked = false;
+//       runAllFilters(); // Re-run filtering logic
+//     });
+//     container.appendChild(li);
+//   };
+
+//   // Populate the 3 groups based on checkbox name attributes
+//   document.querySelectorAll('input[name="type"]:checked').forEach(cb => createTag(cb, appearanceList));
+//   document.querySelectorAll('input[name="reason"]:checked').forEach(cb => createTag(cb, reasonList));
+//   document.querySelectorAll('input[name="status"]:checked').forEach(cb => createTag(cb, statusList));
+
+//   // Toggle heading visibility based on if the list has tags
+//   appearanceHead.style.display = appearanceList.children.length > 0 ? 'block' : 'none';
+//   reasonHead.style.display     = reasonList.children.length > 0 ? 'block' : 'none';
+//   statusHead.style.display     = statusList.children.length > 0 ? 'block' : 'none';
+
+//   // Check for date values
+//   const dateFromValue = document.getElementById('date').value.trim();
+//   const dateToValue = document.getElementById('date2').value.trim();
+//   const hasDateFilter = dateFromValue !== "" || dateToValue !== "";
+
+//   // Show container if there are any tags OR date filters
+//   const totalTags = appearanceList.children.length + reasonList.children.length + statusList.children.length;
+//   selectedFiltersContainer.style.display = (totalTags > 0 || hasDateFilter) ? 'block' : 'none';
+// };
+
+
+//   const runAllFilters = (e) => {
+//     if (e) e.preventDefault();
+//     updateTags();
+
+//     const searchTerm = document.getElementById('searchTerm').value.trim().toLowerCase();
+//     const sortOrder = sortSelect.value;
+//     const dateFrom = parseInputDate(document.getElementById('date').value);
+//     const dateTo = parseInputDate(document.getElementById('date2').value);
+
+//     const getCheckedValues = (name) => Array.from(document.querySelectorAll(`input[name="${name}"]:checked`))
+//       .map(cb => cb.closest('.govuk-checkboxes__item').querySelector('label').textContent.trim().toLowerCase());
+
+//     const selectedTypes = getCheckedValues('type');
+//     const selectedReasons = getCheckedValues('reason');
+//     const selectedStatuses = getCheckedValues('status');
+
+//     let filteredCards = cards.filter(card => {
+//       const cardName = card.querySelector('.card-item a').textContent.toLowerCase();
+//       const cardStatus = card.querySelector('.govuk-tag').textContent.toLowerCase();
+//       const cardType = card.querySelector('.card-item:nth-child(6) span:last-child').textContent.toLowerCase();
+//       const cardReason = card.querySelector('.card-item:nth-child(8) span:last-child').textContent.toLowerCase();
+      
+//       const cardDateStr = card.querySelector('.card-item:nth-child(5) span:last-child').textContent.split(' at ')[0];
+//       const cardDate = new Date(cardDateStr);
+//       cardDate.setHours(0, 0, 0, 0);
+
+//       const matchesSearch = searchTerm === "" || cardName.includes(searchTerm);
+//       const matchesType = selectedTypes.length === 0 || selectedTypes.includes(cardType);
+//       const matchesStatus = selectedStatuses.length === 0 || selectedStatuses.includes(cardStatus);
+//       const matchesReason = selectedReasons.length === 0 || selectedReasons.includes(cardReason);
+//       const matchesDateFrom = !dateFrom || cardDate >= dateFrom;
+//       const matchesDateTo = !dateTo || cardDate <= dateTo;
+
+//       return matchesSearch && matchesType && matchesStatus && matchesReason && matchesDateFrom && matchesDateTo;
+//     });
+
+//     filteredCards.sort((a, b) => {
+//       const dateA = new Date(a.querySelector('.card-item:nth-child(5) span:last-child').textContent.split(' at ')[0]);
+//       const dateB = new Date(b.querySelector('.card-item:nth-child(5) span:last-child').textContent.split(' at ')[0]);
+//       return sortOrder === 'newest' ? dateB - dateA : dateA - dateB;
+//     });
+
+//     totalPages = Math.ceil(filteredCards.length / resultsPerPage);
+//     if (currentPage > totalPages) currentPage = 1;
+
+//     const container = document.querySelector('.cards-container'); 
+//     let noResultsMsg = document.getElementById('no-results-msg');
+//     cards.forEach(c => c.style.display = 'none');
+
+//     if (filteredCards.length === 0) {
+//       if (!noResultsMsg) {
+//         noResultsMsg = document.createElement('p');
+//         noResultsMsg.id = 'no-results-msg';
+//         noResultsMsg.className = 'govuk-body govuk-!-font-weight-bold';
+//         noResultsMsg.textContent = 'There are no results that match your search or filter criteria.';
+//         container.appendChild(noResultsMsg);
+//       }
+//       paginationContainer.style.display = 'none';
+//       return;
+//     } else {
+//       if (noResultsMsg) noResultsMsg.remove();
+//       paginationContainer.style.display = 'flex';
+//     }
+
+//     const start = (currentPage - 1) * resultsPerPage;
+//     const end = start + resultsPerPage;
+//     filteredCards.slice(start, end).forEach(c => c.style.display = '');
+
+//     resultsInfo.innerHTML = `Showing <span>${start + 1}</span> to <span>${Math.min(end, filteredCards.length)}</span> of <span>${filteredCards.length}</span> total results`;
+    
+//     document.querySelectorAll('.govuk-pagination__item').forEach(item => {
+//       const pageNum = parseInt(item.querySelector('a').textContent.trim());
+//       item.classList.toggle('govuk-pagination__item--current', pageNum === currentPage);
+//       item.style.display = pageNum > totalPages ? 'none' : 'flex';
+//     });
+
+//     prevButton.style.display = (currentPage === 1) ? 'none' : 'flex';
+//     nextButton.style.display = (currentPage === totalPages || totalPages === 0) ? 'none' : 'flex';
+//   };
+
+//   // Event Listeners
+//   document.querySelectorAll('.govuk-pagination__item a').forEach(link => {
+//     link.addEventListener('click', (e) => {
+//       e.preventDefault();
+//       currentPage = parseInt(link.textContent.trim());
+//       runAllFilters();
+//       window.scrollTo(0, 0);
+//     });
+//   });
+
+//   prevButton.querySelector('a').addEventListener('click', (e) => {
+//     e.preventDefault();
+//     if (currentPage > 1) { currentPage--; runAllFilters(); window.scrollTo(0, 0); }
+//   });
+
+//   nextButton.querySelector('a').addEventListener('click', (e) => {
+//     e.preventDefault();
+//     if (currentPage < totalPages) { currentPage++; runAllFilters(); window.scrollTo(0, 0); }
+//   });
+
+//   sortSelect.addEventListener('change', () => { currentPage = 1; runAllFilters(); });
+//   applyBtn.addEventListener('click', () => { currentPage = 1; runAllFilters(); });
+//   searchForm.addEventListener('submit', (e) => { e.preventDefault(); currentPage = 1; runAllFilters(); });
+  
+//   clearBtn.addEventListener('click', (e) => {
+//     e.preventDefault();
+//     document.getElementById('searchTerm').value = '';
+//     document.getElementById('date').value = '';
+//     document.getElementById('date2').value = '';
+//     document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+//     sortSelect.selectedIndex = 0;
+//     currentPage = 1;
+//     runAllFilters();
+//   });
+
+//   runAllFilters();
+// });
+

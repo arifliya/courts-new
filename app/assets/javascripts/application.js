@@ -107,6 +107,22 @@ if (reasonElement) {
   });
 }
 
+// 3. COURT LOCATION SELECT
+const locationElement = document.querySelector('#court-location');
+if (locationElement) {
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: locationElement,
+    id: 'court-location-autocomplete', // Unique ID for this instance
+    displayMenu: 'overlay',
+    source: (query, populateResults) => {
+      const options = locationElement.querySelectorAll('option');
+      const results = Array.from(options)
+        .filter(opt => opt.text.toLowerCase().includes(query.toLowerCase()))
+        .map(opt => opt.text.trim());
+      populateResults(results);
+    }
+  });
+}
 
 
 })

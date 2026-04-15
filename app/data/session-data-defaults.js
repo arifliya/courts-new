@@ -33,5 +33,7 @@ module.exports = {
 // Insert values here
   dpsServices,
   dpsAlerts,
-  dpsMalePrisoners
+  dpsMalePrisoners,
+
 }
+

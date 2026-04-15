@@ -68,7 +68,7 @@
 <div class="govuk-grid-row">
           <div class="govuk-grid-column-one-half">
 
-  <form action="appearance-type" method="post">
+  <form action="what-court" method="post">
   <h1 class="govuk-heading-l govuk-!-margin-bottom-6 govuk-!-margin-top-8">
     <span class="govuk-caption-l">Create a Court appearance</span>
     Enter the court appearance date and time</h1>
@@ -103,7 +103,7 @@
           <label class="govuk-label govuk-date-input__label" for="hour">
             Hour
           </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="hour" name="hour" type="text" inputmode="numeric" value="{{ data['hour'] }}">
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="hour" name="hour" type="text" inputmode="numeric" value="{{ data['hour'] or '10' }}">
         </div>
       </div>
       <div class="govuk-date-input__item">
@@ -111,7 +111,7 @@
           <label class="govuk-label govuk-date-input__label" for="minute">
             Minute
           </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="minute" name="minute" type="text" inputmode="numeric" value="{{ data['minute'] }}">
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="minute" name="minute" type="text" inputmode="numeric" value="{{ data['minute'] or '00' }}">
         </div>
       </div>
       
