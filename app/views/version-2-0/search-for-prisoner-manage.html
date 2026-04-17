@@ -927,7 +927,7 @@ document.addEventListener('DOMContentLoaded', () => {
         noResultsMsg.style.display = total === 0 ? 'block' : 'none';
         
         const paginationElem = document.querySelector('.moj-pagination');
-        if (paginationElem) paginationElem.style.display = total === 0 ? 'none' : 'block';
+        if (paginationElem) paginationElem.style.display = total === 0 ? 'none' : 'flex';
         
         // Update Pagination Summary and Buttons
         const resultsSummary = document.querySelector('.moj-pagination__results');
