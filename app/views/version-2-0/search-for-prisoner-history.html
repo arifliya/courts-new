@@ -9,8 +9,6 @@
 
 
 <div class="govuk-width-container" id="before-content">
-    
-
 
 <div class="govuk-phase-banner govuk-width-container">
   <p class="govuk-phase-banner__content">
@@ -42,6 +40,23 @@
 <div class="govuk-width-container govuk-!-margin-top-8">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+      {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{# We wrap the macro in a div with an ID so JS can toggle it #}
+<div id="error-summary-container" style="display: none;">
+  {{ govukErrorSummary({
+    titleText: "There is a problem",
+    errorList: [
+      {
+        text: "Enter a name or prison number",
+        href: "#searchTerm"
+      }
+    ]
+  }) }}
+</div> 
+
       <div class="govuk-!-static-margin-bottom-6">
         <span class="govuk-caption-l">View a prisoners court appearance history</span>
         <label for="searchTerm"><h1 class="govuk-heading-l">Search for a prisoner</h1></label>
@@ -56,17 +71,20 @@
         <div class="govuk-width-container">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <form id="search-form">
-          <div class="govuk-form-group">
-            <div id="searchTerm-hint" class="govuk-hint">
-              Enter name or prison number. A maximum of 10 results can be returned.
-            </div>
-            <input class="govuk-input moj-search__input" id="searchTerm" name="searchTerm" type="text" aria-describedby="searchTerm-hint">
-          </div>
-          <button type="submit" class="govuk-button moj-search__button" data-module="govuk-button">
-            Search
-          </button>
-        </form>
+        <form id="search-form" novalidate>
+  <div class="govuk-form-group" id="search-form-group">
+    <div id="searchTerm-hint" class="govuk-hint">
+      Enter name or prison number. A maximum of 10 results can be returned.
+    </div>
+    <!-- Hide the error by default -->
+    <p id="searchTerm-issued-error" class="govuk-error-message" style="display: none;">
+      <span class="govuk-visually-hidden">Error:</span> Enter a name to perform a search
+    </p>
+    <input class="govuk-input moj-search__input" id="searchTerm" name="searchTerm" type="text" aria-describedby="searchTerm-hint searchTerm-issued-error">
+  </div>
+  <button type="submit" class="govuk-button moj-search__button">Search</button>
+</form>
+
         </div>
         </div>
         </div>
@@ -76,7 +94,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      
+      <div id="startSearch" class="govuk-heading-m">Start a search to view prisoner records.</div>
 
 <!-- Table (Initially Hidden) -->
 <table id="prisoner-table" class="govuk-table" style="display: none;">
@@ -94,7 +112,7 @@
     <td class="govuk-table__cell">G5050HF</td>
     <td class="govuk-table__cell">3-1-009</td>
     <td class="govuk-table__cell govuk-table__cell--numeric">
-      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Riley Taylor">View court appearance history<span class="govuk-visually-hidden"> for Riley Taylor</span></a>
+      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Riley Taylor">Create a court appearance<span class="govuk-visually-hidden"> for Riley Taylor</span></a>
     </td>
   </tr>
   <tr class="govuk-table__row">
@@ -102,7 +120,7 @@
     <td class="govuk-table__cell">C1234AB</td>
     <td class="govuk-table__cell">RECP</td>
     <td class="govuk-table__cell govuk-table__cell--numeric">
-      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Jordan Smith">View court appearance history<span class="govuk-visually-hidden"> for Jordan Smith</span></a>
+      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Jordan Smith">Create a court appearance<span class="govuk-visually-hidden"> for Jordan Smith</span></a>
     </td>
   </tr>
   <tr class="govuk-table__row">
@@ -110,7 +128,7 @@
     <td class="govuk-table__cell">D5566GH</td>
     <td class="govuk-table__cell">4-2-001</td>
     <td class="govuk-table__cell govuk-table__cell--numeric">
-      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Sam Peterson">View court appearance history<span class="govuk-visually-hidden"> for Sam Peterson</span></a>
+      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Sam Peterson">Create a court appearance<span class="govuk-visually-hidden"> for Sam Peterson</span></a>
     </td>
   </tr>
   <tr class="govuk-table__row">
@@ -118,7 +136,7 @@
     <td class="govuk-table__cell">C9902ZZ</td>
     <td class="govuk-table__cell">RECP</td>
     <td class="govuk-table__cell govuk-table__cell--numeric">
-      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Alex Rivera">View court appearance history<span class="govuk-visually-hidden"> for Alex Rivera</span></a>
+      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Alex Rivera">Create a court appearance<span class="govuk-visually-hidden"> for Alex Rivera</span></a>
     </td>
   </tr>
   <tr class="govuk-table__row">
@@ -126,7 +144,7 @@
     <td class="govuk-table__cell">F1122JJ</td>
     <td class="govuk-table__cell">1-1-005</td>
     <td class="govuk-table__cell govuk-table__cell--numeric">
-      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Riley Cooper">View court appearance history<span class="govuk-visually-hidden"> for Riley Cooper</span></a>
+      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Riley Cooper">Create a court appearance<span class="govuk-visually-hidden"> for Riley Cooper</span></a>
     </td>
   </tr>
   <tr class="govuk-table__row">
@@ -134,7 +152,7 @@
     <td class="govuk-table__cell">A1188BC</td>
     <td class="govuk-table__cell">5-2-001</td>
     <td class="govuk-table__cell govuk-table__cell--numeric">
-      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Casey Morgan">View court appearance history<span class="govuk-visually-hidden"> for Casey Morgan</span></a>
+      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Casey Morgan">Create a court appearance<span class="govuk-visually-hidden"> for Casey Morgan</span></a>
     </td>
   </tr>
   <tr class="govuk-table__row">
@@ -142,7 +160,7 @@
     <td class="govuk-table__cell">E3341LK</td>
     <td class="govuk-table__cell">TAP</td>
     <td class="govuk-table__cell govuk-table__cell--numeric">
-      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Morgan Finnegan">View court appearance history<span class="govuk-visually-hidden"> for Morgan Finnegan</span></a>
+      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Morgan Finnegan">Create a court appearance<span class="govuk-visually-hidden"> for Morgan Finnegan</span></a>
     </td>
   </tr>
   <tr class="govuk-table__row">
@@ -150,7 +168,7 @@
     <td class="govuk-table__cell">A0022MM</td>
     <td class="govuk-table__cell">1-2-044</td>
     <td class="govuk-table__cell govuk-table__cell--numeric">
-      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Skyler Quinn">View court appearance history<span class="govuk-visually-hidden"> for Skyler Quinn</span></a>
+      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Skyler Quinn">Create a court appearance<span class="govuk-visually-hidden"> for Skyler Quinn</span></a>
     </td>
   </tr>
   <tr class="govuk-table__row">
@@ -158,7 +176,7 @@
     <td class="govuk-table__cell">B8871PQ</td>
     <td class="govuk-table__cell">4-1-015</td>
     <td class="govuk-table__cell govuk-table__cell--numeric">
-      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Jamie Vance">View court appearance history<span class="govuk-visually-hidden"> for Jamie Vance</span></a>
+      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Jamie Vance">Create a court appearance<span class="govuk-visually-hidden"> for Jamie Vance</span></a>
     </td>
   </tr>
   <tr class="govuk-table__row">
@@ -166,7 +184,7 @@
     <td class="govuk-table__cell">G2233NN</td>
     <td class="govuk-table__cell">2-2-008</td>
     <td class="govuk-table__cell govuk-table__cell--numeric">
-      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Charlie Webb">View court appearance history<span class="govuk-visually-hidden"> for Charlie Webb</span></a>
+      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Charlie Webb">Create a court appearance<span class="govuk-visually-hidden"> for Charlie Webb</span></a>
     </td>
   </tr>
   <tr class="govuk-table__row">
@@ -174,7 +192,7 @@
     <td class="govuk-table__cell">H4455OP</td>
     <td class="govuk-table__cell">3-3-010</td>
     <td class="govuk-table__cell govuk-table__cell--numeric">
-      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Dakota Lane">View court appearance history<span class="govuk-visually-hidden"> for Dakota Lane</span></a>
+      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Dakota Lane">Create a court appearance<span class="govuk-visually-hidden"> for Dakota Lane</span></a>
     </td>
   </tr>
   <tr class="govuk-table__row">
@@ -182,7 +200,7 @@
     <td class="govuk-table__cell">J7788RR</td>
     <td class="govuk-table__cell">RECP</td>
     <td class="govuk-table__cell govuk-table__cell--numeric">
-      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Sam Jenkins">View court appearance history<span class="govuk-visually-hidden"> for Sam Jenkins</span></a>
+      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Sam Jenkins">Create a court appearance<span class="govuk-visually-hidden"> for Sam Jenkins</span></a>
     </td>
   </tr>
   <tr class="govuk-table__row">
@@ -190,7 +208,7 @@
     <td class="govuk-table__cell">K9900SS</td>
     <td class="govuk-table__cell">1-1-002</td>
     <td class="govuk-table__cell govuk-table__cell--numeric">
-      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Jordan Lee">View court appearance history<span class="govuk-visually-hidden"> for Jordan Lee</span></a>
+      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Jordan Lee">Create a court appearance<span class="govuk-visually-hidden"> for Jordan Lee</span></a>
     </td>
   </tr>
   <tr class="govuk-table__row">
@@ -198,7 +216,7 @@
     <td class="govuk-table__cell">L1122TT</td>
     <td class="govuk-table__cell">5-1-009</td>
     <td class="govuk-table__cell govuk-table__cell--numeric">
-      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Taylor Reed">View court appearance history<span class="govuk-visually-hidden"> for Taylor Reed</span></a>
+      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Taylor Reed">Create a court appearance<span class="govuk-visually-hidden"> for Taylor Reed</span></a>
     </td>
   </tr>
   <tr class="govuk-table__row">
@@ -206,7 +224,7 @@
     <td class="govuk-table__cell">M3344UU</td>
     <td class="govuk-table__cell">2-1-004</td>
     <td class="govuk-table__cell govuk-table__cell--numeric">
-      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Riley Scott">View court appearance history<span class="govuk-visually-hidden"> for Riley Scott</span></a>
+      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Riley Scott">Create a court appearance<span class="govuk-visually-hidden"> for Riley Scott</span></a>
     </td>
   </tr>
   <tr class="govuk-table__row">
@@ -214,7 +232,7 @@
     <td class="govuk-table__cell">N5566VV</td>
     <td class="govuk-table__cell">3-2-005</td>
     <td class="govuk-table__cell govuk-table__cell--numeric">
-      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Hayden Cross">View court appearance history<span class="govuk-visually-hidden"> for Hayden Cross</span></a>
+      <a class="govuk-link govuk-link--no-visited-state" href="prisoner-history.html?name=Hayden Cross">Create a court appearance<span class="govuk-visually-hidden"> for Hayden Cross</span></a>
     </td>
   </tr>
 

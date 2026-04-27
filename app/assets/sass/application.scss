@@ -54,16 +54,13 @@ p code, li code {
 
 }
 
-// #no-results-msg {
-//   display: none;
-// }
 
-// .moj-filter__selected {
-//   display: none;
-// }
-
-#no-results-msg, .moj-filter__selected { display: none; }
-.card-group-custom { display: grid; } /* Default state */
+#no-results-msg, .moj-filter__selected { 
+  display: none; 
+}
+.card-group-custom { 
+  display: grid; 
+} /* Default state */
 
 /* The container: 3 columns, 3 rows */
 .card-group-custom {
@@ -89,7 +86,6 @@ p code, li code {
 /* Optional styling for labels vs values */
 .card-item span:first-of-type {
   font-weight: bold;
-  
 }
 
 .card-item span:last-of-type {

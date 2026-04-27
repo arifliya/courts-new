@@ -22,27 +22,56 @@ window.GOVUKPrototypeKit.documentReady(() => {
   /////// search function for prisoner search ////////////
 
   document.addEventListener('DOMContentLoaded', () => {
+  // 1. Select all necessary elements
   const searchForm = document.getElementById('search-form');
   const searchInput = document.getElementById('searchTerm');
+  const formGroup = document.getElementById('search-form-group');
+  const fieldError = document.getElementById('searchTerm-issued-error');
+  const errorSummary = document.getElementById('error-summary-container');
+  const startSearchMsg = document.getElementById('startSearch');
   const table = document.getElementById('prisoner-table');
   const noResults = document.getElementById('no-results');
   const tableRows = document.querySelectorAll('#prisoner-table .govuk-table__body .govuk-table__row');
 
   searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    
-    const filter = searchInput.value.toUpperCase();
+    const filter = searchInput.value.trim().toUpperCase();
+
+    // --- STATE 1: HANDLE EMPTY SEARCH (ERRORS) ---
+    if (filter === "") {
+      // Show Error Summary and Field Error
+      if (errorSummary) errorSummary.style.display = "block";
+      fieldError.style.display = "block";
+      
+      // Apply GOV.UK Error Styling (Red Borders)
+      formGroup.classList.add('govuk-form-group--error');
+      searchInput.classList.add('govuk-input--error');
+
+      // Hide results/instructions
+      table.style.display = "none";
+      noResults.style.display = "none";
+      if (startSearchMsg) startSearchMsg.style.display = "none";
+
+      // Accessibility: Move focus to the Error Summary
+      if (errorSummary) errorSummary.querySelector('.govuk-error-summary').focus();
+      return; // Stop further execution
+    }
+
+    // --- STATE 2: HANDLE VALID SEARCH (CLEAR ERRORS) ---
+    if (errorSummary) errorSummary.style.display = "none";
+    fieldError.style.display = "none";
+    formGroup.classList.remove('govuk-form-group--error');
+    searchInput.classList.remove('govuk-input--error');
+    if (startSearchMsg) startSearchMsg.style.display = "none";
+
+    // --- STATE 3: PERFORM SEARCH & FILTER TABLE ---
     let matchesFound = 0;
     const maxResults = 10;
-
-    // Show the table once a search is performed
-    table.style.display = "table";
 
     tableRows.forEach(row => {
       const nameCell = row.cells[0].textContent.toUpperCase();
       const idCell = row.cells[1].textContent.toUpperCase();
 
-      // Check if it matches AND we haven't reached the limit of 10
       if ((nameCell.includes(filter) || idCell.includes(filter)) && matchesFound < maxResults) {
         row.style.display = "";
         matchesFound++;
@@ -51,15 +80,19 @@ window.GOVUKPrototypeKit.documentReady(() => {
       }
     });
 
-    // Handle empty states
+    // Handle Search Outcome
     if (matchesFound === 0) {
       table.style.display = "none";
       noResults.style.display = "block";
     } else {
+      table.style.display = "table";
       noResults.style.display = "none";
     }
   });
 });
+
+
+
 
 //////////////////////////
 
