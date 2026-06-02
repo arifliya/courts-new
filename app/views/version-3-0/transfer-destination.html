@@ -1,0 +1,198 @@
+{% extends "layouts/dps.html" %}
+
+{% set pageName="Home" %}
+{% set version="v1" %}
+{% set bodyClasses = 'dps home' %}
+
+{% block content %}
+
+<div class="govuk-width-container" id="before-content">
+    
+
+
+<div class="govuk-phase-banner govuk-width-container">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service - your <a href="mailto:external-movements-rollout@justice.gov.uk">feedback</a> will help us to improve it. You can find out more on <a class="govuk-link" target="_blank" href="https://justiceuk.sharepoint.com/sites/prisons-digital/SitePages/External%20Movements%20-%20Homepage.aspx">SharePoint</a>.
+    </span>
+  </p>
+</div>
+    
+<div class="govuk-!-display-none-print">
+
+  <a href="#" class="govuk-back-link" id="back-link">Back</a>
+</div>
+</div>
+
+
+<div class="govuk-width-container">
+
+  <div class="mini-profile-inner">
+    <div class="mini-profile-left">
+      <img class="mini-profile-person-img" src="/public/images/prisoner-images/prisoner_5.jpg" alt="Image of Carroll, Jonathon">
+    </div>
+    <div class="mini-profile-right">
+      <ul class="mini-profile-info">
+        <li>
+          <p class="govuk-heading-s govuk-!-margin-bottom-1">
+            <a id="mini-profile-link" class="govuk-link govuk-link--no-visited-state" >{{ data['name'] or 'the person' }}</a>
+          </p>
+          <span class="govuk-body">A5046DZ</span>
+        </li>
+        <li>
+          <span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span>
+          <span class="govuk-body">7 April 1993</span>
+        </li>
+        <li>
+          <span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Establishment</span>
+          <span class="govuk-body">Moorland (HMP &amp; YOI)</span>
+        </li>
+        <li>
+          <span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Cell number</span>
+          <span class="govuk-body">RECP</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+<br>
+  <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-half">
+<h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="event-name"><span class="govuk-caption-l">Schedule a transfer</span>
+      Enter the prison this prisoner is being transferred to
+    </label>
+    <!-- <span class="govuk-caption-l">What is the name of the event?</span> -->
+  </h1>
+
+  <form action="transfer-reason" method="post">
+ 
+
+<div class="govuk-form-group  govuk-!-margin-top-8">
+  <!-- <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--m" for="event-name">
+      What prison is this transfer to?
+    </label>
+  </h1> -->
+  <label class="govuk-label" for="choose-prison">
+    Start typing a prison name
+  </label>
+
+ <select class="govuk-select" name="choose-prison" id="choose-prison">
+  <option value="Start typing the name of the prison"></option>
+
+  <option value="HMP Altcourse" {% if data['choose-prison'] == 'HMP Altcourse' %}selected{% endif %}>HMP Altcourse</option>
+  <option value="HMP Bedford" {% if data['choose-prison'] == 'HMP Bedford' %}selected{% endif %}>HMP Bedford</option>
+  <option value="HMP Belmarsh" {% if data['choose-prison'] == 'HMP Belmarsh' %}selected{% endif %}>HMP Belmarsh</option>
+  <option value="HMP Berwyn" {% if data['choose-prison'] == 'HMP Berwyn' %}selected{% endif %}>HMP Berwyn</option>
+  <option value="HMP Birmingham" {% if data['choose-prison'] == 'HMP Birmingham' %}selected{% endif %}>HMP Birmingham</option>
+  <option value="HMP Bristol" {% if data['choose-prison'] == 'HMP Bristol' %}selected{% endif %}>HMP Bristol</option>
+  <option value="HMP Brixton" {% if data['choose-prison'] == 'HMP Brixton' %}selected{% endif %}>HMP Brixton</option>
+  <option value="HMP Bullingdon" {% if data['choose-prison'] == 'HMP Bullingdon' %}selected{% endif %}>HMP Bullingdon</option>
+  <option value="HMP Cardiff" {% if data['choose-prison'] == 'HMP Cardiff' %}selected{% endif %}>HMP Cardiff</option>
+  <option value="HMP Chelmsford" {% if data['choose-prison'] == 'HMP Chelmsford' %}selected{% endif %}>HMP Chelmsford</option>
+  <option value="HMP Dartmoor" {% if data['choose-prison'] == 'HMP Dartmoor' %}selected{% endif %}>HMP Dartmoor</option>
+  <option value="HMP Doncaster" {% if data['choose-prison'] == 'HMP Doncaster' %}selected{% endif %}>HMP Doncaster</option>
+  <option value="HMP Durham" {% if data['choose-prison'] == 'HMP Durham' %}selected{% endif %}>HMP Durham</option>
+  <option value="HMP Exeter" {% if data['choose-prison'] == 'HMP Exeter' %}selected{% endif %}>HMP Exeter</option>
+  <option value="HMP Leeds" {% if data['choose-prison'] == 'HMP Leeds' %}selected{% endif %}>HMP Leeds</option>
+  <option value="HMP Leicester" {% if data['choose-prison'] == 'HMP Leicester' %}selected{% endif %}>HMP Leicester</option>
+  <option value="HMP Liverpool" {% if data['choose-prison'] == 'HMP Liverpool' %}selected{% endif %}>HMP Liverpool</option>
+  <option value="HMP Manchester" {% if data['choose-prison'] == 'HMP Manchester' %}selected{% endif %}>HMP Manchester</option>
+  <option value="HMP Pentonville" {% if data['choose-prison'] == 'HMP Pentonville' %}selected{% endif %}>HMP Pentonville</option>
+  <option value="HMP Wandsworth" {% if data['choose-prison'] == 'HMP Wandsworth' %}selected{% endif %}>HMP Wandsworth</option>
+
+</select>
+
+</div>
+
+<!-- <div class="govuk-form-group govuk-!-margin-top-8">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--m" for="appearance-reason">
+      Enter a reason for this appearance
+    </label>
+  </h1>
+  
+  <label class="govuk-label" for="appearance-reason">
+    Start typing the reason for the appearance
+  </label>
+
+  <select class="govuk-select" name="appearance-reason" id="appearance-reason">
+    <option value=""></option>
+
+    {% set reasons = [
+      "Court Appearance",
+      "Discharged to Court",
+      "Video Link (Court Appearance)",
+      "Production of Unsentenced Inmate at Court",
+      "Trial",
+      "Production (Sentence/Civil Custody)",
+      "Sentencing",
+      "Breach hearing",
+      "Court Appearance - Police Product Order",
+      "Court Review",
+      "Bail application",
+      "Discharge to Court on Appeal",
+      "Plea and Directions Hearing",
+      "Expedited Breach Hearing",
+      "Committal Hearing",
+      "Video Link Plea and Direction Hearing",
+      "Witness",
+      "Video Link Appeal",
+      "Video Link Production (Sentencing)",
+      "Video Link Production (Unsent.)",
+      "Appeal Hearing",
+      "Video Link Court Review",
+      "Remittal Hearing",
+      "Video Link Bail Application",
+      "Cond Release Extended Sentence CJA 2003",
+      "Not to Appear Court Date (Diary Only)",
+      "Video Link Committal Hearing",
+      "Video Link Civil Hearing",
+      "Video Link Witness Production",
+      "Video Link Police Production",
+      "Video Link Proceeds of Crime Hearing",
+      "Newton Hearing",
+      "Video Link Breach Hearing",
+      "Video Link Remittal Hearing",
+      "Video Link Expedited Breach Hearing",
+      "Video Link Newton Hearing",
+      "Custody Time Limit"
+    ] %}
+
+    {% for reason in reasons %}
+      <option value="{{ reason }}" {% if data['appearance-reason'] == reason %}selected{% endif %}>{{ reason }}</option>
+    {% endfor %}
+
+  </select>
+</div> -->
+  
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+    </form>
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+  window.onload = function() {
+    // 1. Get the value from the URL (e.g., ?choose-prison=HMP%20Leicester...)
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedPrison = urlParams.get('choose-prison');
+
+    // 2. If the parameter exists, find the select box and set its value
+    if (selectedPrison) {
+      const selectEl = document.getElementById('choose-prison'); // Ensure your <select> has this ID
+      if (selectEl) {
+        selectEl.value = selectedPrison;
+      }
+    }
+  };
+</script>
+
+{% endblock %}

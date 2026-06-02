@@ -130,6 +130,12 @@ if (reasonElement) {
     selectElement: reasonElement,
     id: 'appearance-reason-autocomplete', // Different explicit unique ID
     displayMenu: 'overlay',
+    showAllValues: true, // Show all options when the input is focused
+    dropdownArrow: function (config) {
+    return '<svg class="' + config.className + '" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">' +
+             '<polyline points="6 9 12 15 18 9"></polyline>' +
+           '</svg>';
+  },
     source: (query, populateResults) => {
       const options = reasonElement.querySelectorAll('option');
       const results = Array.from(options)
@@ -149,6 +155,69 @@ if (locationElement) {
     displayMenu: 'overlay',
     source: (query, populateResults) => {
       const options = locationElement.querySelectorAll('option');
+      const results = Array.from(options)
+        .filter(opt => opt.text.toLowerCase().includes(query.toLowerCase()))
+        .map(opt => opt.text.trim());
+      populateResults(results);
+    }
+  });
+}
+
+// 3. PRISON SELECT
+const prisonElement = document.querySelector('#choose-prison');
+if (prisonElement) {
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: prisonElement,
+    id: 'choose-prison-autocomplete', // Unique ID for this instance
+    displayMenu: 'overlay',
+    source: (query, populateResults) => {
+      const options = prisonElement.querySelectorAll('option');
+      const results = Array.from(options)
+        .filter(opt => opt.text.toLowerCase().includes(query.toLowerCase()))
+        .map(opt => opt.text.trim());
+      populateResults(results);
+    }
+  });
+}
+
+// 4. TRANSFER REASON SELECT
+const TransferReasonElement = document.querySelector('#transfer-reason');
+if (TransferReasonElement) {
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: TransferReasonElement,
+    id: 'transfer-reason-autocomplete', // Different explicit unique ID
+    displayMenu: 'overlay',
+    showAllValues: true, // Show all options when the input is focused
+    dropdownArrow: function (config) {
+    return '<svg class="' + config.className + '" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">' +
+             '<polyline points="6 9 12 15 18 9"></polyline>' +
+           '</svg>';
+  },
+    source: (query, populateResults) => {
+      const options = TransferReasonElement.querySelectorAll('option');
+      const results = Array.from(options)
+        .filter(opt => opt.text.toLowerCase().includes(query.toLowerCase()))
+        .map(opt => opt.text.trim());
+      populateResults(results);
+    }
+  });
+}
+
+// 5. TRANSFER REASON SELECT
+const escortElement = document.querySelector('#escort-type');
+if (escortElement) {
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: escortElement,
+    id: 'escort-type-autocomplete', // Different explicit unique ID
+    displayMenu: 'overlay',
+    showAllValues: true, // Show all options when the input is focused
+    dropdownArrow: function (config) {
+    return '<svg class="' + config.className + '" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">' +
+             '<polyline points="6 9 12 15 18 9"></polyline>' +
+           '</svg>';
+  },
+    source: (query, populateResults) => {
+      const options = escortElement.querySelectorAll('option');
       const results = Array.from(options)
         .filter(opt => opt.text.toLowerCase().includes(query.toLowerCase()))
         .map(opt => opt.text.trim());

@@ -322,3 +322,7 @@ p code, li code {
   }
 }
 
+.autocomplete__dropdown-arrow-down {
+  z-index: 1 !important; /* Brings the arrow to the foreground */
+  pointer-events: none; 
+}
