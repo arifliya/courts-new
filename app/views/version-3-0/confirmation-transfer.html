@@ -21,17 +21,24 @@
   </p>
 </div>
     
-<div class="govuk-!-display-none-print">
 
- <a href="#" class="govuk-back-link" id="back-link">Back</a>
-</div>
 </div>
 
 
-<div class="govuk-width-container">
-  <div class="govuk-grid-row">
-    
-      <div class="govuk-grid-column-two-thirds-from-desktop  govuk-!-margin-top-8">
+<div class="govuk-width-container  govuk-!-margin-top-8">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds govuk-!-margin-top-8">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            {{ data['name'] or 'the person' }} has been scheduled for a transfer
+          </h1>
+          <!-- <div class="govuk-panel__body">
+            Your reference number<br><strong>HDJ2123F</strong>
+          </div> -->
+        </div>
+
+        
         <label class="govuk-label govuk-label--l" for="comments"><span class="govuk-caption-l">Schedule a transfer</span>
         <h1 class="govuk-heading-l">Check this information before scheduling this transfer</h1></label>
         <h2 class="govuk-heading-m">Personal details</h2>
@@ -44,9 +51,7 @@
             <dd class="govuk-summary-list__value">
               {{ data['date'] or '5 January 2026' }} at {{ data['hour'] or '09' }}:{{ data['minute'] or '00' }}
             </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="enter-date-time-transfers.html?date={{ data['date'] or '5 January 2026' }}&hour={{ data['hour'] or '09' }}&minute={{ data['minute'] or '00' }}">Change<span class="govuk-visually-hidden"> date and time</span></a>
-            </dd>
+            
           </div>
           
           <div class="govuk-summary-list__row">
@@ -54,11 +59,7 @@
             <dd class="govuk-summary-list__value">
               {{ data['choose-prison'] or 'Not provided' }}
             </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="transfer-destination.html?choose-prison={{ data['choose-prison'] }}">
-                Change<span class="govuk-visually-hidden"> prison location</span>
-              </a>
-            </dd>
+           
           </div>
 
           <div class="govuk-summary-list__row">
@@ -68,9 +69,7 @@
             <dd class="govuk-summary-list__value">
               {{ data['transfer-reason'] or 'Not provided' }}
             </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="transfer-reason.html?transfer-reason={{ data['transfer-reason'] }}">Change<span class="govuk-visually-hidden">transfer reason</span></a>
-            </dd>
+            
           </div>
 
           <div class="govuk-summary-list__row">
@@ -80,9 +79,7 @@
             <dd class="govuk-summary-list__value">
               {{ data['escort-type'] or 'Not provided' }}
             </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="what-type-of-escorted-transfer.html?escort-type={{ data['escort-type'] }}">Change<span class="govuk-visually-hidden"> escort type</span></a>
-            </dd>
+            
           </div>
 
           <div class="govuk-summary-list__row">
@@ -92,23 +89,23 @@
             <dd class="govuk-summary-list__value">
               {{ data['comments'] or 'Not provided' }}
             </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="comments-transfers.html?comments={{ data['transfer-comments'] }}">Change<span class="govuk-visually-hidden"> comments</span></a>
-            </dd>
+            
           </div>
         </dl>
-         <form action="confirmation-transfer" method="post" novalidate>
-          <input type="hidden" name="answers-checked" value="true">
-          <button type="submit" class="govuk-button" data-module="govuk-button">
-            Confirm and save
-          </button>
-        </form>
-      </div>
-  
-    
-  </div>
-</div>
 
+        <p><a class="govuk-link govuk-link--no-visited-state" href="#">View and manage transfers</a></p>
+       <p><a class="govuk-link govuk-link--no-visited-state" href="search-for-prisoner-transfers.html">Transfer another prisoner</a></p>
+        <!-- <p><a class="govuk-link govuk-link--no-visited-state" href="search-for-prisoner.html">Add another court appearance for a different prisoner</a></p> -->
+        <p><a class="govuk-link govuk-link--no-visited-state" href="#">Manage planned transfers</a></p>
+        <p><a class="govuk-link govuk-link--no-visited-state" href="dps-home.html">Return to the DPS homepage</a></p>
+     
+      </div>
+
+
+        </div>
+    </div>
+  </main>
+</div>
 
 
 
