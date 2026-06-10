@@ -5,6 +5,3 @@
 
 
 
-window.GOVUKPrototypeKit.documentReady(() => {
-  
-})

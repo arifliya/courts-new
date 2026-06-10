@@ -7,3 +7,16 @@ const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
+
+// Intercept form submit from /version-3-0/cancel-or-move
+router.post('/version-3-0/cancel-or-move', function (req, res) {
+  var stillNeedTransfer = req.session.data['stillNeedTransfer']
+
+  if (stillNeedTransfer === 'yes') {
+    res.redirect('/version-3-0/transfer-cancelled')
+  } else {
+    res.redirect('/version-3-0/transfer-moved')
+  }
+})
+
+module.exports = router

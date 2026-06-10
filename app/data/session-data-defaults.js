@@ -16,6 +16,7 @@ Example usage:
 let dpsServices       = require('./dps-services.json')
 let dpsAlerts         = require('./dps-alerts.json')
 let dpsMalePrisoners  = require('./dps-male-prisoners.json')
+let prisonerSearchList  = require('./prisoner-search-list.json')
 
 
 module.exports = {
@@ -34,6 +35,6 @@ module.exports = {
   dpsServices,
   dpsAlerts,
   dpsMalePrisoners,
-
+  prisonerSearchList
 }
 

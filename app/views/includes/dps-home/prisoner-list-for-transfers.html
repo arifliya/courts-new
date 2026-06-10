@@ -1,0 +1,41 @@
+{% for prisoner in prisoners %}
+<div class="card-group-custom">
+  <div class="card-item govuk-body govuk-!-font-weight-bold govuk-!-margin-0">
+    <span>{{ prisoner.name }} - {{ prisoner.id }}</span>
+  </div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div>
+  <div class="card-item govuk-body govuk-!-margin-0">
+    <span> </span>
+    <span>
+      <!-- Using Nunjucks urlencode filter to handle safe spaces/characters in query params -->
+      <a href="manage-prisoner-record-transfer.html?name={{ prisoner.name | urlencode }}" class="govuk-link govuk-!-font-weight-bold govuk-link--no-visited-state">View details</a>
+    </span>
+  </div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Prison destination</span><span>{{ prisoner.destination }}</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Date</span><span>{{ prisoner.date }}</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Time</span><span>{{ prisoner.time }}</span></div>  
+  <div class="card-item govuk-body govuk-!-margin-0"><span></span><span></span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>{{ prisoner.reason }}</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span>Escort details </span><span>{{ prisoner.escort_details }}</span></div>
+  <div class="card-item govuk-body govuk-!-margin-0"><span></span><span></span></div>
+  <div class="card-item govuk-body govuk-!-margin-0">
+    <span> </span>
+    <span>
+      {% if prisoner.status == "Scheduled" %}
+        <strong class="govuk-tag govuk-tag--blue">Scheduled</strong>
+      {% elif prisoner.status == "Cancelled" %}
+        <strong class="govuk-tag govuk-tag--red">Cancelled</strong>
+      {% elif prisoner.status == "In transit" %}
+        <strong class="govuk-tag govuk-tag--purple">In transit</strong>
+      {% elif prisoner.status == "Expired" %}
+        <strong class="govuk-tag govuk-tag--grey">Expired</strong>
+      {% else %}
+        <strong class="govuk-tag govuk-tag--green">Completed</strong>
+      {% endif %}
+    </span>
+  </div>
+</div>
+{% else %}
+  <p class="govuk-body">No prisoners found for transfer.</p>
+{% endfor %}
