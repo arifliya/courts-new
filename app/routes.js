@@ -13,9 +13,9 @@ router.post('/version-3-0/cancel-or-move', function (req, res) {
   var stillNeedTransfer = req.session.data['stillNeedTransfer']
 
   if (stillNeedTransfer === 'yes') {
-    res.redirect('/version-3-0/transfer-cancelled')
-  } else {
     res.redirect('/version-3-0/transfer-moved')
+  } else {
+    res.redirect('/version-3-0/transfer-cancelled')
   }
 })
 
