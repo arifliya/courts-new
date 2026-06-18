@@ -403,7 +403,13 @@
 
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  // --- Global Autocomplete Configuration Trackers ---
+// Note: If you initialize your autocompletes via window objects, assign them here
+let prisonAutocompleteInstance = null;
+let reasonAutocompleteInstance = null;
+let escortAutocompleteInstance = null;
+
+document.addEventListener("DOMContentLoaded", function () {
   // --- DOM Elements ---
   const searchForm = document.getElementById('search-form');
   const searchInput = document.getElementById('searchTerm');
@@ -633,13 +639,13 @@
           const value = spans[1].textContent.trim();
 
           if (label.includes('prison destination')) {
-            cardPrisonText = value.toLowerCase();
+            cardPrisonText = value;
           } else if (label.includes('date')) {
             cardDateText = value; 
           } else if (label.includes('reason')) {
-            cardReasonText = value.toLowerCase();
+            cardReasonText = value;
           } else if (label.includes('escort details')) {
-            cardEscortText = value.toLowerCase();
+            cardEscortText = value;
           }
         }
       });
@@ -671,19 +677,19 @@
 
       let matchesPrison = true;
       if (isPrisonFiltered) {
-        const normalizedCardPrison = cardPrisonText.replace('hmpps', 'hmp').trim();
+        const normalizedCardPrison = cardPrisonText.toLowerCase().replace('hmpps', 'hmp').trim();
         const normalizedSelectedPrison = selectedPrison.replace('hmpps', 'hmp').trim();
         matchesPrison = normalizedCardPrison.includes(normalizedSelectedPrison);
       }
 
       let matchesReason = true;
       if (isReasonFiltered) {
-        matchesReason = cardReasonText.includes(selectedReason);
+        matchesReason = cardReasonText.toLowerCase().includes(selectedReason);
       }
 
       let matchesEscort = true;
       if (isEscortFiltered) {
-        matchesEscort = cardEscortText.includes(selectedEscort);
+        matchesEscort = cardEscortText.toLowerCase().includes(selectedEscort);
       }
 
       let matchesStatus = true;
@@ -695,8 +701,8 @@
       if (matchesQuery && matchesDate && matchesPrison && matchesReason && matchesEscort && matchesStatus) {
         card.classList.remove('search-filtered-out');
         
-        // Document passed checks: collect facet data to keep options active
-        if (cardPrisonText) availablePrisons.add(cardPrisonText.replace('hmpps', 'hmp').trim());
+        // Document passed checks: collect raw case text to feed suggestions
+        if (cardPrisonText) availablePrisons.add(cardPrisonText.trim());
         if (cardReasonText) availableReasons.add(cardReasonText.trim());
         if (cardEscortText) availableEscorts.add(cardEscortText.trim());
         if (cardStatusText) availableStatuses.add(cardStatusText.trim());
@@ -732,37 +738,48 @@
       statusGroupContainer.style.display = visibleCheckboxesCount > 0 ? '' : 'none';
     }
 
-    // Helper closure to toggle text autocomplete wrapper rows dynamically
-    const toggleAutocompleteFilterGroup = (inputEl, availableSet, isFiltered) => {
-      if (!inputEl) return;
-      const formGroup = inputEl.closest('.govuk-form-group');
-      if (!formGroup) return;
+    // 2. Dynamically update suggestion option trees for autocomplete fields
+    updateAutocompleteOptions(prisonInput, availablePrisons);
+    updateAutocompleteOptions(reasonInput, availableReasons);
+    updateAutocompleteOptions(escortInput, availableEscorts);
 
-      const inputValue = inputEl.value.trim().toLowerCase().replace('hmpps', 'hmp');
-      
-      let hasValidMatches = false;
-      availableSet.forEach(val => {
-        if (val.includes(inputValue) || inputValue === '') {
-          hasValidMatches = true;
-        }
-      });
-
-      if (isFiltered || hasValidMatches) {
-        formGroup.style.display = '';
-      } else {
-        formGroup.style.display = 'none';
-      }
-    };
-
-    // 2. Evaluate and hide/show autocomplete lists
-    toggleAutocompleteFilterGroup(prisonInput, availablePrisons, isPrisonFiltered);
-    toggleAutocompleteFilterGroup(reasonInput, availableReasons, isReasonFiltered);
-    toggleAutocompleteFilterGroup(escortInput, availableEscorts, isEscortFiltered);
-
-    // Reset pagination to first index window view
+    // Reset pagination to first page
     currentPaginationPage = 1;
     if (typeof refreshPaginationLayout === "function") {
       refreshPaginationLayout();
+    }
+  }
+
+  // Helper utility to sync datalist configurations with current matching options
+  function updateAutocompleteOptions(inputEl, availableSet) {
+    if (!inputEl) return;
+    
+    // Find associated HTML5 Datalist element if one is linked
+    const listId = inputEl.getAttribute('list');
+    const datalist = listId ? document.getElementById(listId) : null;
+    
+    if (datalist) {
+      datalist.innerHTML = '';
+      availableSet.forEach(value => {
+        const option = document.createElement('option');
+        option.value = value;
+        datalist.appendChild(option);
+      });
+    }
+    
+    // Fallback: If you are utilizing custom select dropdown blocks, update options there
+    const parentGroup = inputEl.closest('.govuk-form-group');
+    const customSelect = parentGroup ? parentGroup.querySelector('select') : null;
+    if (customSelect && !listId) {
+      const currentVal = customSelect.value;
+      customSelect.innerHTML = '<option value="">Select an option...</option>';
+      availableSet.forEach(value => {
+        const option = document.createElement('option');
+        option.value = value.toLowerCase();
+        option.textContent = value;
+        if (value.toLowerCase() === currentVal.toLowerCase()) option.selected = true;
+        customSelect.appendChild(option);
+      });
     }
   }
 
@@ -854,7 +871,6 @@ function refreshPaginationLayout() {
   const totalResults = activeMatchingCards.length;
   const totalPages = Math.ceil(totalResults / paginationItemsPerPage);
 
-  // Clear zero condition alert messages
   const existingMsg = resultsContainer.querySelector('.search-status-msg');
   if (existingMsg) existingMsg.remove();
   
@@ -871,7 +887,6 @@ function refreshPaginationLayout() {
     return;
   }
 
-  // Guard Clause: Hide bars and show raw matching rows if data fits on 1 page
   if (totalPages <= 1) {
     if (topPaginationContainer) topPaginationContainer.style.display = 'none';
     if (bottomPaginationContainer) bottomPaginationContainer.style.display = 'none';
@@ -881,15 +896,12 @@ function refreshPaginationLayout() {
     return;
   }
 
-  // Unhide pagination components
   if (topPaginationContainer) topPaginationContainer.style.display = 'flex';
   if (bottomPaginationContainer) bottomPaginationContainer.style.display = 'flex';
 
-  // Calculate rendering slice item bounds
   const fromItem = ((currentPaginationPage - 1) * paginationItemsPerPage) + 1;
   const toItem = Math.min(currentPaginationPage * paginationItemsPerPage, totalResults);
 
-  // Build Page Numbers List HTML
   let pagesListHtml = '';
   for (let i = 1; i <= totalPages; i++) {
     const isCurrent = i === currentPaginationPage;
@@ -902,7 +914,6 @@ function refreshPaginationLayout() {
     `;
   }
 
-  // Build Prev Navigation Tab Link Element
   const prevHtml = currentPaginationPage > 1 ? `
     <div class="govuk-pagination__prev">
       <a class="govuk-link govuk-link--no-visited-state govuk-pagination__link" href="#" data-target-page="${currentPaginationPage - 1}" rel="prev">
@@ -914,7 +925,6 @@ function refreshPaginationLayout() {
     </div>
   ` : '';
 
-  // Build Next Navigation Tab Link Element
   const nextHtml = currentPaginationPage < totalPages ? `
     <div class="govuk-pagination__next">
       <a class="govuk-link govuk-link--no-visited-state govuk-pagination__link" href="#" data-target-page="${currentPaginationPage + 1}" rel="next">
@@ -940,7 +950,6 @@ function refreshPaginationLayout() {
   if (topPaginationContainer) topPaginationContainer.innerHTML = completePaginationMarkup;
   if (bottomPaginationContainer) bottomPaginationContainer.innerHTML = completePaginationMarkup;
 
-  // Flush view rules and slice array arrays items out
   allCards.forEach(card => card.style.display = 'none');
 
   const startIndex = (currentPaginationPage - 1) * paginationItemsPerPage;
@@ -951,7 +960,6 @@ function refreshPaginationLayout() {
     card.style.display = '';
   });
 
-  // Attach event click interceptors
   [topPaginationContainer, bottomPaginationContainer].forEach(container => {
     if (!container) return;
     container.querySelectorAll('.govuk-pagination__link').forEach(link => {
@@ -964,7 +972,6 @@ function refreshPaginationLayout() {
   });
 }
 
-// 2. Page Navigation Transition Effect
 function executePaginationPageChange(newPageNumber, activeMatchingCards, allCards) {
   const resultsContainer = document.getElementById('search-results-container');
   const existingMsg = resultsContainer ? resultsContainer.querySelector('.search-status-msg') : null;
@@ -989,14 +996,13 @@ function executePaginationPageChange(newPageNumber, activeMatchingCards, allCard
   }, 500); 
 }
 
-// Standalone helper utility for sorting engine timestamp evaluations
 function parseGovUkDateStringHelper(dateStr) {
   if (!dateStr || dateStr.trim() === '') return null;
   
   if (dateStr.includes('/')) {
     const parts = dateStr.split('/');
     if (parts.length === 3) {
-      return new Date(parseInt(parts[2], 10), parseInt(parts[1], 10) - 1, parseInt(parts[0], 10));
+      return new Date(parseInt(parts[2], 10), parseInt(parts[1], 10) - 1, parseInt(parts, 10));
     }
   }
   
@@ -1004,11 +1010,9 @@ function parseGovUkDateStringHelper(dateStr) {
   return isNaN(parsed) ? null : new Date(parsed);
 }
 
-// Automatically execute calculation setup right away on initial page boots
 document.addEventListener("DOMContentLoaded", function () {
   refreshPaginationLayout();
 });
-
 
 </script>
 
