@@ -1,0 +1,152 @@
+{% extends "layouts/dps.html" %}
+
+{% set pageName="Home" %}
+{% set version="v1" %}
+{% set bodyClasses = 'dps home' %}
+
+{% block content %}
+
+<div class="govuk-width-container" id="before-content">
+    
+
+
+<div class="govuk-phase-banner govuk-width-container">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service - your <a href="mailto:external-movements-rollout@justice.gov.uk">feedback</a> will help us to improve it. You can find out more on <a class="govuk-link" target="_blank" href="https://justiceuk.sharepoint.com/sites/prisons-digital/SitePages/External%20Movements%20-%20Homepage.aspx">SharePoint</a>.
+    </span>
+  </p>
+</div>
+    
+<div class="govuk-!-display-none-print">
+
+ <a href="#" class="govuk-back-link" id="back-link">Back</a>
+</div>
+</div>
+
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    
+      <div class="govuk-grid-column-two-thirds-from-desktop  govuk-!-margin-top-8">
+        <label class="govuk-label govuk-label--l" for="comments"><span class="govuk-caption-l">Plan a transfer</span>
+        <h1 class="govuk-heading-l">Check your answers</h1></label>
+        <!-- <h2 class="govuk-heading-m">Personal details</h2> -->
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <!-- <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Prisoner name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['name'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="search-for-prisoner.html">Change<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+          </div> -->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date request received
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['date'] or '5 January 2026' }} at {{ data['hour'] or '09' }}:{{ data['minute'] or '00' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="transfer-request-date.html?date={{ data['date'] or '5 January 2026' }}&hour={{ data['hour'] or '09' }}&minute={{ data['minute'] or '00' }}">Change<span class="govuk-visually-hidden"> date and time</span></a>
+            </dd>
+          </div>
+          <!-- <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type of appearance
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['appearanceType'] or 'Court appearance' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="appearance-type.html?appearanceType={{ data['appearanceType'] }}">Change<span class="govuk-visually-hidden"> type of appearance</span></a>
+            </dd>
+          </div> -->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Reason</dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['choose-court'] or 'Medical' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="transfer-plan-reason.html?choose-court={{ data['choose-court'] }}">
+                Change<span class="govuk-visually-hidden"> court location</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Priority
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['appearance-reason'] or 'Medium' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="transfer-request-date.html?appearance-reason={{ data['appearance-reason'] }}">Change<span class="govuk-visually-hidden"> reason</span></a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Destination (optional)</dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['choose-court'] or 'HMPPS Bristol' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="transfer-destination-optional.html?choose-court={{ data['choose-court'] }}">
+                Change<span class="govuk-visually-hidden"> prison destination</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Escort details (optional)
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['appearance-reason'] or 'Police escort' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="what-type-of-escorted-transfer-plans.html?appearance-reason={{ data['appearance-reason'] }}">Change<span class="govuk-visually-hidden"> escort details</span></a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Status
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['appearance-reason'] or 'Ready to schedule' }}
+            </dd>
+            <!-- <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="what-court.html?appearance-reason={{ data['appearance-reason'] }}">Change<span class="govuk-visually-hidden"> escort details</span></a>
+            </dd> -->
+          </div>
+          
+        </dl>
+        <div class="govuk-button-group">
+         <form action="confirmation-plans" method="post" novalidate>
+          <input type="hidden" name="answers-checked" value="true">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Confirm plan
+          </button>
+        </form>
+        <!-- <a href="confirmation-plan-updated.html" class="govuk-button govuk-button--secondary">Save and update plan</a> -->
+        </div>
+      </div>
+  
+    
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}

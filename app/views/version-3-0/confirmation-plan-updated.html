@@ -31,7 +31,7 @@
       <div class="govuk-grid-column-two-thirds govuk-!-margin-top-8">
         <div class="govuk-panel govuk-panel--confirmation">
           <h1 class="govuk-panel__title">
-            {{ data['name'] or 'the person' }} has been scheduled for a transfer
+           {{ data['name'] or 'the person' }}'s plan has been updated
           </h1>
           <!-- <div class="govuk-panel__body">
             Your reference number<br><strong>HDJ2123F</strong>
@@ -44,7 +44,7 @@
           
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Date and time
+              Date request received
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['date'] or '5 January 2026' }} at {{ data['hour'] or '09' }}:{{ data['minute'] or '00' }}
@@ -52,22 +52,35 @@
             
           </div>
           
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">Destination</dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['choose-prison'] or 'Not provided' }}
-            </dd>
-           
-          </div>
-
+          
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Reason
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['transfer-reason'] or 'Not provided' }}
+              {{ data['transfer-reason'] or 'Medical' }}
             </dd>
             
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Priority
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['comments'] or 'Medium' }}
+            </dd>
+            <!-- <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> comments</span></a>
+            </dd> -->
+          </div>
+
+<div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Destination</dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['choose-prison'] or 'HMPPS Bristol' }}
+            </dd>
+           
           </div>
 
           <div class="govuk-summary-list__row">
@@ -75,12 +88,16 @@
               Escort details
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['escort-type'] or 'Not provided' }}
+              {{ data['escort-type'] or 'Police escort' }}
             </dd>
             
           </div>
 
-          <div class="govuk-summary-list__row">
+          
+
+
+          
+          <!-- <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Comments
             </dt>
@@ -88,16 +105,18 @@
               {{ data['comments'] or 'Not provided' }}
             </dd>
             
-          </div>
+          </div> -->
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Status
             </dt>
             <dd class="govuk-summary-list__value">
-              Scheduled
+              Ready to schedule
             </dd>
-            
+            <!-- <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="comments-transfers.html?comments={{ data['transfer-comments'] }}">Change<span class="govuk-visually-hidden"> comments</span></a>
+            </dd> -->
           </div>
         </dl>
         <h2 class="govuk-heading-m">What you can do next</h2>

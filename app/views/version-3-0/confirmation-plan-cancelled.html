@@ -31,7 +31,7 @@
       <div class="govuk-grid-column-two-thirds govuk-!-margin-top-8">
         <div class="govuk-panel govuk-panel--confirmation">
           <h1 class="govuk-panel__title">
-            {{ data['name'] or 'the person' }} has been scheduled for a transfer
+           Plan cancelled for {{ data['name'] or 'the person' }}
           </h1>
           <!-- <div class="govuk-panel__body">
             Your reference number<br><strong>HDJ2123F</strong>
@@ -40,66 +40,7 @@
 
         
         
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-          
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Date and time
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['date'] or '5 January 2026' }} at {{ data['hour'] or '09' }}:{{ data['minute'] or '00' }}
-            </dd>
-            
-          </div>
-          
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">Destination</dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['choose-prison'] or 'Not provided' }}
-            </dd>
-           
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Reason
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['transfer-reason'] or 'Not provided' }}
-            </dd>
-            
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Escort details
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['escort-type'] or 'Not provided' }}
-            </dd>
-            
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Comments
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['comments'] or 'Not provided' }}
-            </dd>
-            
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Status
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Scheduled
-            </dd>
-            
-          </div>
-        </dl>
+        
         <h2 class="govuk-heading-m">What you can do next</h2>
         <p><a class="govuk-link govuk-link--no-visited-state" href="#">View and manage transfers</a></p>
        <p><a class="govuk-link govuk-link--no-visited-state" href="search-for-prisoner-transfers.html">Transfer another prisoner</a></p>

@@ -19,4 +19,25 @@ router.post('/version-3-0/cancel-or-move', function (req, res) {
   }
 })
 
+router.post('/version-3-0/futher-details-needed', function (req, res) {
+  var stillNeedTransfer = req.session.data['furtherDetails']
+
+  if (stillNeedTransfer === 'yes') {
+    res.redirect('/version-3-0/transfer-destination-optional')
+  } else {
+    res.redirect('/version-3-0/check-answers-plans-incomplete')
+  }
+})
+
+router.post('/version-3-0/cancel-plan', function (req, res) {
+  var stillNeedTransfer = req.session.data['cancelPlan']
+
+  if (stillNeedTransfer === 'yes') {
+    res.redirect('/version-3-0/confirmation-plan-cancelled')
+  } else {
+    res.redirect('/version-3-0/manage-prisoner-record-plans')
+  }
+})
+
+
 module.exports = router
