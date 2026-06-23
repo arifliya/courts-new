@@ -52,10 +52,10 @@
               Date request received
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['date'] or '5 January 2026' }} at {{ data['hour'] or '09' }}:{{ data['minute'] or '00' }}
+              {{ data['request-date'] or '5 January 2026' }} 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="enter-date-time.html?date={{ data['date'] or '5 January 2026' }}&hour={{ data['hour'] or '09' }}&minute={{ data['minute'] or '00' }}">Change<span class="govuk-visually-hidden"> date and time</span></a>
+              <a class="govuk-link govuk-link--no-visited-state" href="transfer-request-date.html?request-date={{ data['request-date'] or '5 January 2026' }}">Change<span class="govuk-visually-hidden"> date and time</span></a>
             </dd>
           </div>
           <!-- <div class="govuk-summary-list__row">
@@ -72,11 +72,11 @@
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Reason</dt>
             <dd class="govuk-summary-list__value">
-              {{ data['choose-court'] or 'Medical' }}
+              {{ data['transfer-reason'] or 'Medical' }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="what-court.html?choose-court={{ data['choose-court'] }}">
-                Change<span class="govuk-visually-hidden"> court location</span>
+              <a class="govuk-link govuk-link--no-visited-state" href="transfer-plan-reason.html?transfer-reason={{ data['transfer-reason'] }}">
+                Change<span class="govuk-visually-hidden"> trnsfer reason</span>
               </a>
             </dd>
           </div>
@@ -86,20 +86,20 @@
               Priority
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['appearance-reason'] or 'Medium' }}
+              {{ data['priorityOfTransfer'] or 'Medium' }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="what-court.html?appearance-reason={{ data['appearance-reason'] }}">Change<span class="govuk-visually-hidden"> reason</span></a>
+              <a class="govuk-link govuk-link--no-visited-state" href="transfer-plan-priority.html?priorityOfTransfer={{ data['priorityOfTransfer'] }}">Change<span class="govuk-visually-hidden"> priortiy</span></a>
             </dd>
           </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Destination (optional)</dt>
             <dd class="govuk-summary-list__value">
-              Not provided
+              {{ data['choose-prison'] or 'Not provided' }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="what-court.html?choose-court={{ data['choose-court'] }}">
+              <a class="govuk-link govuk-link--no-visited-state" href="transfer-destination-optional.html?choose-prison={{ data['choose-prison'] }}">
                 Change<span class="govuk-visually-hidden"> prison destination</span>
               </a>
             </dd>
@@ -110,22 +110,31 @@
               Escort details (optional)
             </dt>
             <dd class="govuk-summary-list__value">
-              Not provided
+              {{ data['escort-type'] or 'Not provided' }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="what-court.html?appearance-reason={{ data['appearance-reason'] }}">Change<span class="govuk-visually-hidden"> escort details</span></a>
+              <a class="govuk-link govuk-link--no-visited-state" href="what-type-of-escorted-transfer-plans.html?escort-type={{ data['escort-type'] }}">Change<span class="govuk-visually-hidden"> escort details</span></a>
             </dd>
           </div>
 
-          <div class="govuk-summary-list__row">
+          <div id="awaiting" class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Status
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['appearance-reason'] or 'Awaiting details' }}
+              <strong class="govuk-tag">
+                Awaiting details
+              </strong>
             </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="what-court.html?appearance-reason={{ data['appearance-reason'] }}">Change<span class="govuk-visually-hidden"> escort details</span></a>
+          </div>
+          <div id="ready" class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Status
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <strong class="govuk-tag">
+                Ready to schedule
+              </strong>
             </dd>
           </div>
           
@@ -146,7 +155,26 @@
 </div>
 
 
+<script>
 
+document.addEventListener('DOMContentLoaded', () => {
+  const valueElements = document.querySelectorAll('.govuk-summary-list__value');
+  const hasNotProvided = Array.from(valueElements).some(el => el.textContent.trim() === 'Not provided');
+  
+  const awaitingRow = document.getElementById('awaiting');
+  const readyRow = document.getElementById('ready');
+
+  if (hasNotProvided) {
+    awaitingRow.style.display = 'table-row'; // standard display for govuk-summary-list__row
+    readyRow.style.display = 'none';
+  } else {
+    awaitingRow.style.display = 'none';
+    readyRow.style.display = 'table-row';
+  }
+});
+
+
+</script>
 
 
 {% endblock %}

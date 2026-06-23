@@ -42,7 +42,7 @@
               Date and time
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['date'] or '5 January 2026' }} at {{ data['hour'] or '09' }}:{{ data['minute'] or '00' }}
+              {{ data['transfer-date'] or '5 January 2026' }} at {{ data['transfer-hour'] or '09' }}:{{ data['transfer-minute'] or '00' }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link govuk-link--no-visited-state" href="enter-date-time-transfers.html?date={{ data['date'] or '5 January 2026' }}&hour={{ data['hour'] or '09' }}&minute={{ data['minute'] or '00' }}">Change<span class="govuk-visually-hidden"> date and time</span></a>
@@ -115,11 +115,13 @@
               Status
             </dt>
             <dd class="govuk-summary-list__value">
-              Ready to schedule
+              <strong class="govuk-tag">
+                Ready to schedule
+              </strong>
             </dd>
-            <dd class="govuk-summary-list__actions">
+            <!-- <dd class="govuk-summary-list__actions">
               <a class="govuk-link govuk-link--no-visited-state" href="comments-transfers.html?comments={{ data['transfer-comments'] }}">Change<span class="govuk-visually-hidden"> comments</span></a>
-            </dd>
+            </dd> -->
           </div>
         </dl>
          

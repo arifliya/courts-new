@@ -8,8 +8,15 @@
   <div class="card-item govuk-body govuk-!-margin-0">
     <span> </span>
     <span>
-      <!-- Using Nunjucks urlencode filter to handle safe spaces/characters in query params -->
-      <a href="manage-prisoner-record-plans.html?name={{ prisoner.name | urlencode }}" class="govuk-link govuk-!-font-weight-bold govuk-link--no-visited-state">Add details</a>
+      <!-- Chaining data points into query parameters using the urlencode filter -->
+      <a href="manage-prisoner-record-plans.html?name={{ prisoner.name | urlencode }}&id={{ prisoner.id | urlencode }}&destination={{ prisoner.destination | urlencode }}&date={{ prisoner.date | urlencode }}&time={{ prisoner.time | urlencode }}&reason={{ prisoner.reason | urlencode }}&escort_details={{ prisoner.escort_details | urlencode }}&priority={{ prisoner.priority | urlencode }}&status={{ prisoner.status | urlencode }}" class="govuk-link govuk-!-font-weight-bold govuk-link--no-visited-state">
+       {% if prisoner.status == "Ready to schedule" or prisoner.status == "Cancelled" %}
+          View details
+        {% else %}
+          Add details
+        {% endif %}
+
+      </a>
     </span>
   </div>
   <div class="card-item govuk-body govuk-!-margin-0"><span>Prison destination</span><span>{{ prisoner.destination }}</span></div>

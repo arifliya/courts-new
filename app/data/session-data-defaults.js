@@ -32,11 +32,15 @@ module.exports = {
   'arrivedToday': '12',
   'outToday': '16',
 
-// Insert values here
+  // Inserted values
   dpsServices,
   dpsAlerts,
   dpsMalePrisoners,
   prisonerSearchList,
-  prisonerSearchListPlans
+  prisonerSearchListPlans,
+  
+  // This maps your 30-record JSON dataset to the key used in your template markup
+  'prisoners': prisonerSearchListPlans
 }
+
 

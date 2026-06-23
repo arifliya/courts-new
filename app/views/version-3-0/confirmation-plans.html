@@ -92,16 +92,25 @@
             
           </div>
 
-          <div class="govuk-summary-list__row">
+          <div id="awaiting" class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Status
             </dt>
             <dd class="govuk-summary-list__value">
-              Ready to schedule
+              <strong class="govuk-tag">
+                Awaiting details
+              </strong>
             </dd>
-            <!-- <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="comments-transfers.html?comments={{ data['transfer-comments'] }}">Change<span class="govuk-visually-hidden"> comments</span></a>
-            </dd> -->
+          </div>
+          <div id="ready" class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Status
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <strong class="govuk-tag">
+                Ready to schedule
+              </strong>
+            </dd>
           </div>
 
           
@@ -121,7 +130,23 @@
   </main>
 </div>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const valueElements = document.querySelectorAll('.govuk-summary-list__value');
+  const hasNotProvided = Array.from(valueElements).some(el => el.textContent.trim() === 'Not provided');
+  
+  const awaitingRow = document.getElementById('awaiting');
+  const readyRow = document.getElementById('ready');
 
+  if (hasNotProvided) {
+    awaitingRow.style.display = 'table-row'; // standard display for govuk-summary-list__row
+    readyRow.style.display = 'none';
+  } else {
+    awaitingRow.style.display = 'none';
+    readyRow.style.display = 'table-row';
+  }
+});
+</script>
 
 
 {% endblock %}

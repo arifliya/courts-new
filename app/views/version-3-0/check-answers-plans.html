@@ -52,7 +52,7 @@
               Date request received
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['date'] or '5 January 2026' }} at {{ data['hour'] or '09' }}:{{ data['minute'] or '00' }}
+              {{ data['-request-date'] or '5 January 2026' }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link govuk-link--no-visited-state" href="transfer-request-date.html?date={{ data['date'] or '5 January 2026' }}&hour={{ data['hour'] or '09' }}&minute={{ data['minute'] or '00' }}">Change<span class="govuk-visually-hidden"> date and time</span></a>
