@@ -18,6 +18,7 @@ let dpsAlerts         = require('./dps-alerts.json')
 let dpsMalePrisoners  = require('./dps-male-prisoners.json')
 let prisonerSearchList  = require('./prisoner-search-list.json')
 let prisonerSearchListPlans  = require('./prisoner-search-list-plans.json')
+let prisonerSearchSchedulesPlans  = require('./prisoner-search-schedules-plans.json')
 
 
 module.exports = {
@@ -38,9 +39,10 @@ module.exports = {
   dpsMalePrisoners,
   prisonerSearchList,
   prisonerSearchListPlans,
+  prisonerSearchSchedulesPlans,
   
-  // This maps your 30-record JSON dataset to the key used in your template markup
-  'prisoners': prisonerSearchListPlans
+  // // This maps your 30-record JSON dataset to the key used in your template markup
+  // 'prisoners': prisonerSearchListPlans
 }
 
 

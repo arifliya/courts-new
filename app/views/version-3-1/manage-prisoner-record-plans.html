@@ -1,0 +1,391 @@
+
+{% extends "layouts/dps.html" %}
+
+{% set pageName="Home" %}
+{% set version="v1" %}
+{% set bodyClasses = 'dps' %}
+
+{% block beforeContent %}
+  
+<div class="govuk-width-container" id="before-content">
+    
+
+
+<div class="govuk-phase-banner govuk-width-container">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service - your <a href="mailto:external-movements-rollout@justice.gov.uk">feedback</a> will help us to improve it. You can find out more on <a class="govuk-link" target="_blank" href="https://justiceuk.sharepoint.com/sites/prisons-digital/SitePages/External%20Movements%20-%20Homepage.aspx">SharePoint</a>.
+    </span>
+  </p>
+</div>
+    
+<div class="govuk-!-display-none-print">
+
+  <a href="#" class="govuk-back-link" id="back-link">Back</a>
+
+</div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="mini-profile govuk-!-margin-top-7">
+    
+  <div class="mini-profile-inner">
+    <div class="mini-profile-left">
+      <img class="mini-profile-person-img" src="/public/images/prisoner-images/prisoner_5.jpg" alt="Image of Carroll, Jonathon">
+    </div>
+    <div class="mini-profile-right">
+      <ul class="mini-profile-info">
+        <li>
+          <p class="govuk-heading-s govuk-!-margin-bottom-1">
+            <a id="mini-profile-link" class="govuk-link govuk-link--no-visited-state" >{{ data['name'] or 'the person' }}</a>
+          </p>
+          <span class="govuk-body">A5046DZ</span>
+        </li>
+        <li>
+          <span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Date of birth</span>
+          <span class="govuk-body">7 April 1993</span>
+        </li>
+        <li>
+          <span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Establishment</span>
+          <span class="govuk-body">Moorland (HMP &amp; YOI)</span>
+        </li>
+        <li>
+          <span class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-0">Cell number</span>
+          <span class="govuk-body">RECP</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-width-container ">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-6 ">
+    <span class="govuk-caption-l">Manage planned transfer</span>
+    Manage {{ data['name'] or 'the person' }}’s planned transfer</h1>
+
+
+<div class="govuk-button-group govuk-!-margin-bottom-6">
+  {# Show the Schedule button ONLY if the status is "Ready to schedule" #}
+  {% if data.status == "Ready to schedule" %}
+    <a id="confirm-transfer" href="confirmation-transfer.html" class="govuk-button" data-module="govuk-button">Schedule this plan</a>
+  {% endif %}
+
+  {# Show the Cancel button if the status is "Ready to schedule" OR "Awaiting details" (hidden only when Cancelled) #}
+  {% if data.status != "Cancelled" %}
+    <a id="cancel-plan" href="cancel-plan.html" class="govuk-button govuk-button--warning" data-module="govuk-button">Cancel this plan</a>
+  {% endif %}
+</div>
+
+
+
+      <div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#absence-plan">
+        Manage plan
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#absence-history">
+        Plan history
+      </a>
+    </li>
+  </ul>
+  <div class="govuk-tabs__panel" id="absence-plan">
+    
+  
+    <div class="govuk-summary-card govuk-!-margin-bottom-2">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Transfer information
+    </h2>
+  </div>
+
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+    
+      {# Date and time Row #}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Date and time
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data.date == 'Add date' or data.time == 'Add time' or not data.date %}
+            Add a date and time
+          {% else %}
+            {{ data.date }} at {{ data.time }}
+          {% endif %}
+        </dd>
+        {% if data.status != "Cancelled" %}
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="enter-date-time-transfers.html">
+              {{ 'Add' if (data.date == 'Add date' or data.time == 'Add time' or not data.date) else 'Change' }}
+              <span class="govuk-visually-hidden"> date and time</span>
+            </a>
+          </dd>
+        {% endif %}
+      </div>
+      
+      {# Destination Row #}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Destination
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data.destination or 'Add a destination' }}
+        </dd>
+        {% if data.status != "Cancelled" %}
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="transfer-destination.html">
+              {{ 'Add' if (data.destination == 'Add destination' or not data.destination) else 'Change' }}
+              <span class="govuk-visually-hidden"> destination</span>
+            </a>
+          </dd>
+        {% endif %}
+      </div>
+
+      {# Reason Row #}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Reason
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data.reason or 'Medical' }}
+        </dd>
+        {% if data.status != "Cancelled" %}
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="transfer-reason.html?appearance-reason={{ data.reason | urlencode }}">
+              Change<span class="govuk-visually-hidden"> reason</span>
+            </a>
+          </dd>
+        {% endif %}
+      </div>
+
+      {# Escort details Row #}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Escort details
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data.escort_details or 'Add escort details' }}
+        </dd>
+        {% if data.status != "Cancelled" %}
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="what-type-of-escorted-transfer.html">
+              {{ 'Add' if (data.escort_details == 'Add escort details' or not data.escort_details) else 'Change' }}
+              <span class="govuk-visually-hidden"> escort details</span>
+            </a>
+          </dd>
+        {% endif %}
+      </div>
+
+      {# Priority Row #}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Priority
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data.priority or 'Medium' }}
+        </dd>
+        {% if data.status != "Cancelled" %}
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="transfer-plan-priority.html">
+              Change<span class="govuk-visually-hidden"> priority</span>
+            </a>
+          </dd>
+        {% endif %}
+      </div>
+
+      {# Status Row #}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Status
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data.status == "Awaiting details" %}
+            <strong class="govuk-tag govuk-tag--grey">Awaiting details</strong>
+          {% elif data.status == "Cancelled" %}
+            <strong class="govuk-tag govuk-tag--red">Cancelled</strong>
+          {% elif data.status == "Ready to schedule" %}
+            <strong class="govuk-tag govuk-tag--blue">Ready to schedule</strong>
+          {% else %}
+            <strong class="govuk-tag govuk-tag--yellow">{{ data.status or 'Unknown status' }}</strong>
+          {% endif %}
+        </dd>
+      </div>
+      
+    </dl>
+  </div>
+</div>
+
+
+  </div>
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="absence-history">
+    <div class="moj-timeline">
+      <div class="moj-timeline__item">
+    
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Plan cancelled</h2>
+          
+            <p class="moj-timeline__byline">by Jim Riaz (JIM_RIAZ_GEN)</p>
+          
+        </div>
+    
+        <p class="moj-timeline__date">
+          <time datetime="2026-02-23T14:02:01.770408">23 February 2026 at 2:02pm</time>
+        </p>
+    
+        <div class="moj-timeline__description">
+          
+            Plan cancelled for {{ data['name'] or 'the person' }}
+          
+          
+          
+            <br><br>
+            
+              Reason: deleted
+    
+            
+          
+          
+        </div>
+    
+      </div>
+      
+      <div class="moj-timeline__item">
+    
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Plan changed</h2>
+          
+        </div>
+    
+        <p class="moj-timeline__date">
+          <time datetime="2026-01-30T14:33:33.900013">30 January 2026 at 2:33pm</time>
+        </p>
+    
+        <div class="moj-timeline__description">
+          
+            Plan changed for {{ data['name'] or 'the person' }}
+          
+          
+          <br><br>
+            
+              Reason: Prison change
+          
+        </div>
+    
+      </div>
+      </div>
+
+</div>
+  
+</div>
+
+</div>
+<!-- <div class="govuk-grid-column-one-quarter align-right">
+        <h2 class="govuk-heading-m">Related tasks</h2>
+        
+          <p><a class="govuk-link govuk-link--no-visited-state" href="enter-date-time.html">Create a new court appearance for {{ data['name'] or 'the person' }}</a></p>
+        
+
+        </div> -->
+</div>
+
+</div>
+
+<script>
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const valueElements = document.querySelectorAll('.govuk-summary-list__value');
+//   const hasNotProvided = Array.from(valueElements).some(el => el.textContent.trim() === 'Not provided');
+  
+//   const awaitingRow = document.getElementById('awaiting');
+//   const readyRow = document.getElementById('ready');
+
+//   if (hasNotProvided) {
+//     awaitingRow.style.display = 'table-row'; // standard display for govuk-summary-list__row
+//     readyRow.style.display = 'none';
+//   } else {
+//     awaitingRow.style.display = 'none';
+//     readyRow.style.display = 'table-row';
+//   }
+// });
+
+
+</script>
+
+{% endblock %}
+
+
+  <!-- <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month">
+    <h2 class="govuk-heading-l">Past month</h2>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Case manager</th>
+          <th scope="col" class="govuk-table__header">Cases opened</th>
+          <th scope="col" class="govuk-table__header">Cases closed</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">David Francis</td>
+          <td class="govuk-table__cell">98</td>
+          <td class="govuk-table__cell">95</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Paul Farmer</td>
+          <td class="govuk-table__cell">122</td>
+          <td class="govuk-table__cell">131</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Rita Patel</td>
+          <td class="govuk-table__cell">126</td>
+          <td class="govuk-table__cell">142</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-year">
+    <h2 class="govuk-heading-l">Past year</h2>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Case manager</th>
+          <th scope="col" class="govuk-table__header">Cases opened</th>
+          <th scope="col" class="govuk-table__header">Cases closed</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">David Francis</td>
+          <td class="govuk-table__cell">1380</td>
+          <td class="govuk-table__cell">1472</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Paul Farmer</td>
+          <td class="govuk-table__cell">1129</td>
+          <td class="govuk-table__cell">1083</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Rita Patel</td>
+          <td class="govuk-table__cell">1539</td>
+          <td class="govuk-table__cell">1265</td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+
