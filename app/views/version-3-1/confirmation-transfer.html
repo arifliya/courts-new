@@ -55,7 +55,7 @@
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Destination</dt>
             <dd class="govuk-summary-list__value">
-              {{ data['choose-prison'] or 'Not provided' }}
+              {{ data['choose-prison'] or 'HMP Bristol' }}
             </dd>
            
           </div>
@@ -65,7 +65,7 @@
               Reason
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['transfer-reason'] or 'Not provided' }}
+              {{ data['transfer-reason'] or 'Medical' }}
             </dd>
             
           </div>
@@ -75,7 +75,7 @@
               Escort details
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['escort-type'] or 'Not provided' }}
+              {{ data['escort-type'] or 'Police escort' }}
             </dd>
             
           </div>
@@ -95,7 +95,7 @@
               Status
             </dt>
             <dd class="govuk-summary-list__value">
-              <strong class="govuk-tag govuk-tag--yellow">
+              <strong class="govuk-tag govuk-tag--teal">
                 Scheduled
               </strong>
             </dd>
@@ -103,10 +103,10 @@
           </div>
         </dl>
         <h2 class="govuk-heading-m">What you can do next</h2>
-        <p><a class="govuk-link govuk-link--no-visited-state" href="manage-scheduled-transfers.html">View and manage transfers</a></p>
+        <p><a class="govuk-link govuk-link--no-visited-state" href="manage-transfers.html">View and manage transfers</a></p>
        <p><a class="govuk-link govuk-link--no-visited-state" href="search-for-prisoner-transfers.html">Transfer another prisoner</a></p>
         <!-- <p><a class="govuk-link govuk-link--no-visited-state" href="search-for-prisoner.html">Add another court appearance for a different prisoner</a></p> -->
-        <p><a class="govuk-link govuk-link--no-visited-state" href="manage-planned-transfers.html">Manage planned transfers</a></p>
+        <!-- <p><a class="govuk-link govuk-link--no-visited-state" href="manage-planned-transfers.html">Manage planned transfers</a></p> -->
         <p><a class="govuk-link govuk-link--no-visited-state" href="dps-home.html">Return to the DPS homepage</a></p>
      
       </div>

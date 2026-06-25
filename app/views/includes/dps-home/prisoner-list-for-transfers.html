@@ -8,8 +8,7 @@
   <div class="card-item govuk-body govuk-!-margin-0">
     <span> </span>
     <span>
-      <!-- Using Nunjucks urlencode filter to handle safe spaces/characters in query params -->
-      <a href="manage-prisoner-record-transfer.html?name={{ prisoner.name | urlencode }}" class="govuk-link govuk-!-font-weight-bold govuk-link--no-visited-state">View details</a>
+      <a href="manage-prisoner-record-transfer.html?name={{ prisoner.name | urlencode }}&id={{ prisoner.id | urlencode }}&destination={{ prisoner.destination | urlencode }}&date={{ prisoner.date | urlencode }}&time={{ prisoner.time | urlencode }}&reason={{ prisoner.reason | urlencode }}&escort_details={{ prisoner.escort_details | urlencode }}&status={{ prisoner.status | urlencode }}" class="govuk-link govuk-!-font-weight-bold govuk-link--no-visited-state">View details</a>
     </span>
   </div>
   <div class="card-item govuk-body govuk-!-margin-0"><span>Prison destination</span><span>{{ prisoner.destination }}</span></div>
@@ -23,7 +22,7 @@
     <span> </span>
     <span>
       {% if prisoner.status == "Scheduled" %}
-        <strong class="govuk-tag govuk-tag--blue">Scheduled</strong>
+        <strong class="govuk-tag govuk-tag--teal">Scheduled</strong>
       {% elif prisoner.status == "Cancelled" %}
         <strong class="govuk-tag govuk-tag--red">Cancelled</strong>
       {% elif prisoner.status == "In transit" %}

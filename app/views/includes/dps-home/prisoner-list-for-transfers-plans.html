@@ -8,7 +8,7 @@
   <div class="card-item govuk-body govuk-!-margin-0">
     <span> </span>
     <span>
-      <a href="{% if prisoner.status == 'Scheduled' or prisoner.status == 'In transit' or prisoner.status == 'Completed' %}manage-prisoner-record-transfer.html{% else %}manage-prisoner-record-plans.html{% endif %}?name={{ prisoner.name | urlencode }}&id={{ prisoner.id | urlencode }}&destination={{ prisoner.destination | urlencode }}&date={{ prisoner.date | urlencode }}&time={{ prisoner.time | urlencode }}&reason={{ prisoner.reason | urlencode }}&escort_details={{ prisoner.escort_details | urlencode }}&priority={{ prisoner.priority | urlencode }}&status={{ prisoner.status | urlencode }}" class="govuk-link govuk-!-font-weight-bold govuk-link--no-visited-state">
+      <a href="{% if prisoner.status == 'Awaiting details' or prisoner.status == 'Ready to schedule' %}manage-prisoner-record-plans.html{% else %}manage-prisoner-record-transfer.html{% endif %}?name={{ prisoner.name | urlencode }}&id={{ prisoner.id | urlencode }}&destination={{ prisoner.destination | urlencode }}&date={{ prisoner.date | urlencode }}&time={{ prisoner.time | urlencode }}&reason={{ prisoner.reason | urlencode }}&escort_details={{ prisoner.escort_details | urlencode }}&priority={{ prisoner.priority | urlencode }}&status={{ prisoner.status | urlencode }}" class="govuk-link govuk-!-font-weight-bold govuk-link--no-visited-state">
         {% if prisoner.status == "Awaiting details" %}
           Add details
         {% else %}
@@ -50,7 +50,7 @@
   </div>
   
   <div class="card-item govuk-body govuk-!-margin-0">
-    {% if prisoner.status == "Ready to schedule" or prisoner.status == "Awaiting details" %}
+    {% if prisoner.status == "Ready to schedule" or prisoner.status == "Awaiting details" or prisoner.status == "Expired" %}
       <span>Priority</span><span>{{ prisoner.priority }}</span>
     {% else %}
       <span></span><span></span>
@@ -61,7 +61,7 @@
     <span> </span>
     <span>
       {% if prisoner.status == "Scheduled" %}
-        <strong class="govuk-tag govuk-tag--blue">Scheduled</strong>
+        <strong class="govuk-tag govuk-tag--teal">Scheduled</strong>
       {% elif prisoner.status == "Cancelled" %}
         <strong class="govuk-tag govuk-tag--red">Cancelled</strong>
       {% elif prisoner.status == "In transit" %}
@@ -71,7 +71,7 @@
       {% elif prisoner.status == "Awaiting details" %}
         <strong class="govuk-tag govuk-tag--yellow">Awaiting details</strong>
       {% elif prisoner.status == "Ready to schedule" %}
-        <strong class="govuk-tag govuk-tag--turquoise">Ready to schedule</strong>
+        <strong class="govuk-tag govuk-tag--blue">Ready to schedule</strong>
       {% else %}
         <strong class="govuk-tag govuk-tag--green">Completed</strong>
       {% endif %}

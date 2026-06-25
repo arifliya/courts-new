@@ -215,11 +215,13 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {% if data.status == "Awaiting details" %}
-            <strong class="govuk-tag govuk-tag--grey">Awaiting details</strong>
+            <strong class="govuk-tag govuk-tag--yellow">Awaiting details</strong>
           {% elif data.status == "Cancelled" %}
             <strong class="govuk-tag govuk-tag--red">Cancelled</strong>
           {% elif data.status == "Ready to schedule" %}
             <strong class="govuk-tag govuk-tag--blue">Ready to schedule</strong>
+          {% elif data.status == "Expired" %}
+            <strong class="govuk-tag govuk-tag--grey">Expired</strong>
           {% else %}
             <strong class="govuk-tag govuk-tag--yellow">{{ data.status or 'Unknown status' }}</strong>
           {% endif %}

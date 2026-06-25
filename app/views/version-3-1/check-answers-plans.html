@@ -72,7 +72,7 @@
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Reason</dt>
             <dd class="govuk-summary-list__value">
-              {{ data['choose-court'] or 'Medical' }}
+              {{ data['reason'] or 'Medical' }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link govuk-link--no-visited-state" href="transfer-plan-reason.html?choose-court={{ data['choose-court'] }}">
@@ -86,7 +86,7 @@
               Priority
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['appearance-reason'] or 'Medium' }}
+              {{ data['priority'] or 'Medium' }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link govuk-link--no-visited-state" href="transfer-request-date.html?appearance-reason={{ data['appearance-reason'] }}">Change<span class="govuk-visually-hidden"> reason</span></a>
@@ -96,7 +96,7 @@
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Destination (optional)</dt>
             <dd class="govuk-summary-list__value">
-              {{ data['choose-court'] or 'HMPPS Bristol' }}
+              {{ data['choose-prison'] or 'HMPPS Bristol' }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link govuk-link--no-visited-state" href="transfer-destination-optional.html?choose-court={{ data['choose-court'] }}">
@@ -110,23 +110,22 @@
               Escort details (optional)
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['appearance-reason'] or 'Police escort' }}
+              {{ data['escort-type'] or 'Police escort' }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link govuk-link--no-visited-state" href="what-type-of-escorted-transfer-plans.html?appearance-reason={{ data['appearance-reason'] }}">Change<span class="govuk-visually-hidden"> escort details</span></a>
             </dd>
           </div>
 
-          <div class="govuk-summary-list__row">
+          <div id="ready" class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Status
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['appearance-reason'] or 'Ready to schedule' }}
+              <strong class="govuk-tag">
+                Ready to schedule
+              </strong>
             </dd>
-            <!-- <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="what-court.html?appearance-reason={{ data['appearance-reason'] }}">Change<span class="govuk-visually-hidden"> escort details</span></a>
-            </dd> -->
           </div>
           
         </dl>

@@ -30,11 +30,13 @@
     <span> </span>
     <span>
   {% if prisoner.status == "Awaiting details" %}
-    <strong class="govuk-tag govuk-tag--grey">Awaiting details</strong>
+    <strong class="govuk-tag govuk-tag--yellow">Awaiting details</strong>
   {% elif prisoner.status == "Cancelled" %}
     <strong class="govuk-tag govuk-tag--red">Cancelled</strong>
   {% elif prisoner.status == "Ready to schedule" %}
-    <strong class="govuk-tag govuk-tag--blue">Ready to schedule</strong>
+    <strong class="govuk-tag govuk-tag">Ready to schedule</strong>
+  {% elif prisoner.status == "Expired" %}
+    <strong class="govuk-tag govuk-tag--grey">Expired</strong>
   {% else %}
     <strong class="govuk-tag govuk-tag--yellow">Unknown status</strong>
   {% endif %}
