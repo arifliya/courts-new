@@ -95,7 +95,7 @@
       "Prisoner Escort Contractors (Other)",
       "Reliance"
     ] %}
-
+ 
     {% for reason in reasons %}
       <option value="{{ reason }}" {% if data['appearance-reason'] == reason %}selected{% endif %}>{{ reason }}</option>
     {% endfor %}
@@ -117,13 +117,13 @@
   window.onload = function() {
     // 1. Get the value from the URL (e.g., ?choose-prison=HMP%20Leicester...)
     const urlParams = new URLSearchParams(window.location.search);
-    const selectedPrison = urlParams.get('choose-prison');
+    const selectedEscort = urlParams.get('escort-type');
 
     // 2. If the parameter exists, find the select box and set its value
-    if (selectedPrison) {
-      const selectEl = document.getElementById('choose-prison'); // Ensure your <select> has this ID
+    if (selectedEscort) {
+      const selectEl = document.getElementById('escort-type'); // Ensure your <select> has this ID
       if (selectEl) {
-        selectEl.value = selectedPrison;
+        selectEl.value = selectedEscort;
       }
     }
   };

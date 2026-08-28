@@ -1,0 +1,445 @@
+{% extends "layouts/dps.html" %}
+
+{% set pageName="Home" %}
+{% set version="v1" %}
+{% set bodyClasses = 'dps home' %}
+{% set prisoners = data['prisonerSearchBulkCheckboxes'] %}
+
+{% block content %}
+
+
+
+<div class="govuk-width-container" id="before-content">
+    
+
+
+<div class="govuk-phase-banner govuk-width-container">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service - your <a href="mailto:external-movements-rollout@justice.gov.uk">feedback</a> will help us to improve it. You can find out more on <a class="govuk-link" target="_blank" href="https://justiceuk.sharepoint.com/sites/prisons-digital/SitePages/External%20Movements%20-%20Homepage.aspx">SharePoint</a>.
+    </span>
+  </p>
+</div>
+    
+<div class="govuk-!-display-none-print">
+
+  <nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="dps-home.html">Digital Prison Services</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="external-movements.html">External movements</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="transfers-home.html">Transfers</a>
+      </li>
+    </ol>
+  </nav> 
+</div>
+</div>
+
+<div class="govuk-width-container govuk-!-margin-top-8">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-!-static-margin-bottom-6">
+        <span class="govuk-caption-l">Bulk transfers</span>
+        <label for="searchTerm"><h1 class="govuk-heading-l">Bulk update prisoners</h1></label>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    
+
+
+    <div class="govuk-grid-column-three-quarters">
+      
+      
+<form action="check-answers-bulk" method="post" id="bulkCheckAnswersForm">     
+  <div id="bulk-edit-container">
+      <div class="moj-filter" data-module="moj-filter">
+        <div class="moj-filter__header">
+          <div class="moj-filter__header-title">
+            <h2 class="govuk-heading-m ">Bulk transfer created</h2>
+          </div>
+          <div class="moj-filter__header-action">
+          </div>
+        </div>
+        <div class="moj-filter__content">
+          
+          <div class="moj-filter__options">
+            
+           <div class="govuk-grid-row">
+    
+
+
+    <div class="govuk-grid-column-one-third">
+            
+            <div class="moj-datepicker" data-module="moj-date-picker">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-label--s" for="date">
+                  Date
+                </label>
+                <div id="date-hint" class="govuk-hint">
+                  For example, 17/05/2024.
+                </div>
+                <input class="govuk-input moj-js-datepicker-input " id="date" name="date" type="text" aria-describedby="date-hint" autocomplete="off">
+              </div>
+            </div>
+          </div>
+
+<div class="govuk-grid-column-one-third">
+<div class="govuk-form-group">
+  <label class="govuk-label govuk-label--s" for="transfer-reason">
+    Escort details
+  </label>
+  <div id="date-hint4" class="govuk-hint">
+    For example, Police escort
+  </div>
+  <select class="govuk-select" name="escort-type" id="escort-type">
+    <option value=""></option>
+
+     {% set escorts = [
+      "Accompanied",
+      "Prison officer escort (Local)",
+      "Prison officer escort (National)",
+      "Police escort",
+      "Unescorted",
+      "Other (immigration etc.)",
+      "GeoAmey",
+      "Group 4 Securicor",
+      "H.M.P Establishment",
+      "Premier",
+      "Prisoner Escort Contractors (Other)",
+      "Reliance"
+    ] %}
+
+    {% for escort in escorts %}
+      <option value="{{ escort }}">{{ escort }}</option>
+    {% endfor %}
+
+  </select>
+</div>
+</div>
+
+<div class="govuk-grid-column-one-third">
+<div class="govuk-form-group">
+  <label class="govuk-label govuk-label--s" for="transfer-reason">
+    Reason
+  </label>
+  <div id="date-hint4" class="govuk-hint">
+    For example, Appeals
+  </div>
+  <select class="govuk-select" name="transfer-reason" id="transfer-reason">
+    <option value=""></option>
+
+    {% set reasons = [
+      "28 Day Lie Down",
+      "Accumulated visits",
+      "Accumulated visits with stopover",
+      "Appeals",
+      "Compassionate transfer",
+      "For production",
+      "Medical",
+      "Normal transfer",
+      "Other inc change of status",
+      "Overcrowding draft",
+      "Pre release employment scheme",
+      "Programme attendance",
+      "Security reasons"
+    ] %}
+
+      {% for reason in reasons %}
+      <option value="{{ reason }}" >{{ reason }}</option>
+    {% endfor %}
+  </select>
+</div>    
+</div>
+</div>
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-one-half">
+<div class="govuk-form-group">
+  <label class="govuk-label govuk-label--s" for="choose-prison">
+    Prison destination
+  </label>
+  <div id="prison-hint" class="govuk-hint">
+    For example, Manchester
+  </div>
+
+ <select class="govuk-select" name="choose-prison" id="choose-prison">
+  <option value="Start typing the name of the prison"></option>
+
+  <option value="HMP Altcourse" >HMP Altcourse</option>
+  <option value="HMP Bedford" >HMP Bedford</option>
+  <option value="HMP Belmarsh" >HMP Belmarsh</option>
+  <option value="HMP Berwyn" >HMP Berwyn</option>
+  <option value="HMP Birmingham" >HMP Birmingham</option>
+  <option value="HMP Bristol" >HMP Bristol</option>
+  <option value="HMP Brixton" >HMP Brixton</option>
+  <option value="HMP Bullingdon" >HMP Bullingdon</option>
+  <option value="HMP Cardiff" >HMP Cardiff</option>
+  <option value="HMP Chelmsford" >HMP Chelmsford</option>
+  <option value="HMP Dartmoor" >HMP Dartmoor</option>
+  <option value="HMP Doncaster" >HMP Doncaster</option>
+  <option value="HMP Durham" >HMP Durham</option>
+  <option value="HMP Exeter" >HMP Exeter</option>
+  <option value="HMP Leeds" >HMP Leeds</option>
+  <option value="HMP Leicester" >HMP Leicester</option>
+  <option value="HMP Liverpool" >HMP Liverpool</option>
+  <option value="HMP Manchester" >HMP Manchester</option>
+  <option value="HMP Pentonville" >HMP Pentonville</option>
+  <option value="HMP Wandsworth" >HMP Wandsworth</option>
+ 
+</select>
+</div>
+</div>
+
+<div class="govuk-grid-column-one-half">
+<div class="govuk-form-group">
+  <label class="govuk-label govuk-label--s" for="comments">
+    Comments
+  </label>
+  <div id="comments-hint" class="govuk-hint">
+    Add any additional details
+  </div>
+  <input class="govuk-input moj-js-datepicker-input " id="comments" name="comments" type="text" aria-describedby="date-hint" autocomplete="off">
+</div>
+</div>
+</div>
+
+
+       <button type="submit" class="govuk-button" data-module="govuk-button" id="continueBulk">
+              Continue
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="search-results-container" class="cards-container">
+  <div class="print-only-header govuk-!-font-weight-bold">
+    <div>Name</div>
+    <div>Court location</div>
+    <div>Reason</div>
+    <div>Date</div>
+    <div>Time</div>
+  </div>
+<!-- card group container -->
+<div class="govuk-visually-hidden">
+  <p id="destinationPrison">{{ data['choose-prison']}}</p>
+  <p id="dateFrom">{{ data['date']}}</p>
+  <p id="dateTo">{{ data['date2']}}</p>
+ </div>
+{% include "includes/dps-home/prisoner-list-for-bulk-checkboxes.html" %}
+
+
+
+  </div>
+<!-- <div class="sticky-action-bar">
+     
+                <div class="govuk-body sticky-action-bar--label">
+                  <strong class="change-count">1 change selected</strong> <button class="clear-select govuk-body govuk-!-margin-bottom-0">Clear</button>
+                </div>
+      <button type="submit" data-prevent-double-click="true" class="govuk-button govuk-!-margin-bottom-0 govuk-button--secondary" data-module="govuk-button" data-govuk-button-init="">
+        Save changes
+      </button>
+    </div> -->
+</form> 
+  </div>  <!-- // 3 quarters container -->
+</div>
+
+
+<script>
+  // A fallback function to parse diverse date formats into standard timestamps
+const getTimestamp = (dateStr) => {
+  if (!dateStr) return null;
+  const cleanStr = dateStr.trim();
+  if (!cleanStr) return null;
+
+  // Strategy A: Try parsing "DD/MM/YYYY" format
+  if (cleanStr.includes('/')) {
+    const parts = cleanStr.split('/');
+    if (parts.length === 3) {
+      const d = parseInt(parts[0], 10);
+      const m = parseInt(parts[1], 10) - 1; // 0-indexed months
+      const y = parseInt(parts[2], 10);
+      const testDate = new Date(y, m, d);
+      if (!isNaN(testDate.getTime())) return testDate.getTime();
+    }
+  }
+
+  // Strategy B: Native JS fallback parser (Handles "10 September 2026", "2026-09-10", etc.)
+  const nativeParse = Date.parse(cleanStr);
+  if (!isNaN(nativeParse)) return nativeParse;
+
+  return null;
+};
+
+// Converts standard timestamps to the required long text format ("10 September 2026")
+const convertToLongText = (timestamp) => {
+  if (!timestamp) return '';
+  const dateObj = new Date(timestamp);
+  const months = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+  return `${dateObj.getDate()} ${months[dateObj.getMonth()]} ${dateObj.getFullYear()}`;
+};
+
+const executeCardFiltering = () => {
+  // 1. Safely pull elements from the page
+  const prisonElement = document.getElementById('destinationPrison');
+  const dateFromElement = document.getElementById('dateFrom');
+  const dateToElement = document.getElementById('dateTo');
+
+  // 2. Clear out surrounding white spaces and line breaks
+  const targetPrison = prisonElement ? prisonElement.textContent.trim().toLowerCase() : '';
+  const rawDateFrom = dateFromElement ? dateFromElement.textContent.trim() : '';
+  const rawDateTo = dateToElement ? dateToElement.textContent.trim() : '';
+
+  // 3. Resolve dates into clean matching timestamps
+  const fromTimestamp = getTimestamp(rawDateFrom);
+  const toTimestamp = getTimestamp(rawDateTo);
+
+  // 4. Update the visual layout strings in the UI immediately
+  if (fromTimestamp && dateFromElement) {
+    dateFromElement.textContent = convertToLongText(fromTimestamp);
+  }
+  if (toTimestamp && dateToElement) {
+    dateToElement.textContent = convertToLongText(toTimestamp);
+  }
+
+  // 5. Target all card containers
+  const cards = document.querySelectorAll('.card-group-custom');
+  if (cards.length === 0) {
+    console.warn("⚠️ Filter warning: No elements found matching '.card-group-custom'");
+    return;
+  }
+
+  cards.forEach(card => {
+    // Extract individual card information
+    const cardPrison = (card.dataset.prison || '').trim().toLowerCase();
+    const cardDateRaw = (card.dataset.date || '').trim();
+    const cardTimestamp = getTimestamp(cardDateRaw);
+
+    // Filter Logic Rule A: Match prison if provided
+    const matchesPrison = (targetPrison === '') || (cardPrison === targetPrison);
+
+    // Filter Logic Rule B: Match date ranges if provided
+    let matchesDateRange = true;
+
+    if (fromTimestamp || toTimestamp) {
+      if (cardTimestamp) {
+        const satisfiesFrom = !fromTimestamp || cardTimestamp >= fromTimestamp;
+        const satisfiesTo = !toTimestamp || cardTimestamp <= toTimestamp;
+        matchesDateRange = satisfiesFrom && satisfiesTo;
+      } else {
+        // Hide card if searching for a range, but this card doesn't have a date
+        matchesDateRange = false;
+      }
+    }
+
+    // 6. Hard apply visibility using CSS layouts
+    if (matchesPrison && matchesDateRange) {
+      card.style.setProperty('display', '', 'important'); 
+    } else {
+      card.style.setProperty('display', 'none', 'important');
+    }
+  });
+};
+
+// Engine initializer setup to ensure execution runs after the page layout finishes loading
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', executeCardFiltering);
+} else {
+  executeCardFiltering();
+}
+
+
+</script>
+
+
+<script>
+ document.addEventListener('DOMContentLoaded', () => {
+  // 1. CHRONOLOGICAL FILTER ENGINE WITH RE-ENTRY PROTECTION
+  const filterBulkSelectionCards = () => {
+    const targetPrison = document.getElementById('destinationPrison')?.textContent.trim() || '';
+    const rawDateTo = document.getElementById('dateTo')?.textContent.trim() || '';
+
+    // If both parameters are empty strings, don't run the filter (keeps everything visible)
+    if (!targetPrison && !rawDateTo) {
+      return; 
+    }
+
+    const cards = document.querySelectorAll('.card-group-custom');
+
+    cards.forEach(card => {
+      const cardPrison = card.dataset.prison || '';
+      const cardDate = card.dataset.date || '';
+
+      const matchesPrison = targetPrison === '' || cardPrison.toLowerCase() === targetPrison.toLowerCase();
+      const matchesDate = rawDateTo === '' || cardDate === rawDateTo;
+
+      if (matchesPrison && matchesDate) {
+        card.style.display = ''; 
+      } else {
+        card.style.display = 'none'; 
+      }
+    });
+  };
+
+  // 2. CLEAN DYNAMIC FORM SUBMISSION INJECTION (With strict duplication prevention)
+  const form = document.getElementById('bulkCheckAnswersForm');
+  if (form) {
+    form.addEventListener('submit', () => {
+      // Clear out any old hidden inputs from the browser DOM if they exist
+      form.querySelectorAll('input[name="bulkSelectedNames"]').forEach(input => input.remove());
+
+      // Force the Prototype Kit backend to completely reset the session array
+      const resetInput = document.createElement('input');
+      resetInput.type = 'hidden';
+      resetInput.name = 'bulkSelectedNames';
+      resetInput.value = '';
+      form.appendChild(resetInput);
+
+      // Gather current checked boxes
+      const checkedBoxes = document.querySelectorAll('input[name="selected_prisoners"]:checked');
+      
+      checkedBoxes.forEach((checkbox) => {
+        const label = document.querySelector(`label[for="${checkbox.id}"]`);
+        if (label) {
+          const fullText = label.textContent.trim();
+          const nameOnly = fullText.split('-')[0].trim();
+
+          // Create a fresh hidden input for this submission session
+          const hiddenInput = document.createElement('input');
+          hiddenInput.type = 'hidden';
+          hiddenInput.name = 'bulkSelectedNames'; 
+          hiddenInput.value = nameOnly;
+          
+          form.appendChild(hiddenInput);
+        }
+      });
+    });
+  }
+
+  // Execute the filter routine on layout load
+  filterBulkSelectionCards();
+});
+
+
+</script>
+
+
+
+{% endblock %}
+

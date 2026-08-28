@@ -126,7 +126,7 @@
     </dd>
     {% if data['status'] == 'Scheduled' %}
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link govuk-link--no-visited-state" href="enter-date-time.html?date={{ data['date'] | urlencode }}&time={{ data['time'] | urlencode }}">
+        <a class="govuk-link govuk-link--no-visited-state" href="enter-date-time-transfers.html?date={{ data['transfer-date'] | urlencode }}&time={{ data['-transfer-time'] | urlencode }}">
           Change<span class="govuk-visually-hidden"> date and time</span>
         </a>
       </dd>
@@ -143,7 +143,7 @@
     </dd>
     {% if data['status'] == 'Scheduled' %}
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link govuk-link--no-visited-state" href="what-court.html?destination={{ data['destination'] | urlencode }}">
+        <a class="govuk-link govuk-link--no-visited-state" href="transfer-destination.html?choose-prison={{ data['choose-prison'] | urlencode }}">
           Change<span class="govuk-visually-hidden"> destination</span>
         </a>
       </dd>
@@ -160,7 +160,7 @@
     </dd>
     {% if data['status'] == 'Scheduled' %}
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link govuk-link--no-visited-state" href="what-court.html?reason={{ data['reason'] | urlencode }}">
+        <a class="govuk-link govuk-link--no-visited-state" href="transfer-reason.html?transfer-reason={{ data['transfer-reason'] | urlencode }}">
           Change<span class="govuk-visually-hidden"> reason</span>
         </a>
       </dd>

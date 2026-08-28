@@ -1,0 +1,73 @@
+{% for prisoner in prisoners %} 
+  <div class="card-group-custom"> 
+    <div class="card-item govuk-body govuk-!-font-weight-bold govuk-!-margin-0"> 
+      <span>{{ prisoner.name }} - {{ prisoner.id }}</span>
+    </div> 
+    <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div> 
+    <div class="card-item govuk-body govuk-!-margin-0"><span> </span><span> </span></div> 
+    <div class="card-item govuk-body govuk-!-margin-0"> 
+      <span> </span> 
+      <span> 
+        <a href="{% if prisoner.status == 'Awaiting details' or prisoner.status == 'Ready to schedule' %}manage-prisoner-record-plans.html{% else %}manage-prisoner-record-transfer.html{% endif %}?name={{ prisoner.name | urlencode }}&id={{ prisoner.id | urlencode }}&destination={{ prisoner.destination | urlencode }}&date={{ prisoner.date | urlencode }}&time={{ prisoner.time | urlencode }}&reason={{ prisoner.reason | urlencode }}&escort_details={{ prisoner.escort_details | urlencode }}&priority={{ prisoner.priority | urlencode }}&status={{ prisoner.status | urlencode }}" class="govuk-link govuk-!-font-weight-bold govuk-link--no-visited-state"> 
+          {% if prisoner.status == "Awaiting details" %} Add details {% else %} View details {% endif %} 
+        </a> 
+      </span> 
+    </div> 
+    <div class="card-item govuk-body govuk-!-margin-0"> 
+      <span>Prison destination</span> 
+      <span> 
+        {% if prisoner.destination %}{{ prisoner.destination }}{% else %}<span class="govuk-hint govuk-!-margin-0">Add destination</span>{% endif %} 
+      </span> 
+    </div> 
+    <div class="card-item govuk-body govuk-!-margin-0"> 
+      <span>Date</span> 
+      <span> 
+        {% if prisoner.date %}{{ prisoner.date }}{% else %}<span class="govuk-hint govuk-!-margin-0">Add date</span>{% endif %} 
+      </span> 
+    </div> 
+    <div class="card-item govuk-body govuk-!-margin-0"> 
+      <span>Time</span> 
+      <span> 
+        {% if prisoner.time %}{{ prisoner.time }}{% else %}<span class="govuk-hint govuk-!-margin-0">Add time</span>{% endif %} 
+      </span> 
+    </div> 
+    <div class="card-item govuk-body govuk-!-margin-0"><span></span><span></span></div> 
+    <div class="card-item govuk-body govuk-!-margin-0"><span>Reason</span><span>{{ prisoner.reason }}</span></div> 
+    <div class="card-item govuk-body govuk-!-margin-0"> 
+      <span>Escort details </span> 
+      <span> 
+        {% if prisoner.escort_details %}{{ prisoner.escort_details }}{% else %}<span class="govuk-hint govuk-!-margin-0">Add escort details</span>{% endif %} 
+      </span> 
+    </div> 
+    <div class="card-item govuk-body govuk-!-margin-0"> 
+      {% if prisoner.status == "Ready to schedule" or prisoner.status == "Awaiting details" or prisoner.status == "Expired" %} 
+        <span>Priority</span><span>{{ prisoner.priority }}</span> 
+      {% else %} 
+        <span></span><span></span> 
+      {% endif %} 
+    </div> 
+    <div class="card-item govuk-body govuk-!-margin-0"> 
+      <span> </span> 
+      <span> 
+        {% if prisoner.status == "Scheduled" %} 
+          <strong class="govuk-tag govuk-tag--teal">Scheduled</strong> 
+        {% elif prisoner.status == "Cancelled" %} 
+          <strong class="govuk-tag govuk-tag--red">Cancelled</strong> 
+        {% elif prisoner.status == "In transit" %} 
+          <strong class="govuk-tag govuk-tag--purple">In transit</strong> 
+        {% elif prisoner.status == "Expired" %} 
+          <strong class="govuk-tag govuk-tag--grey">Expired</strong> 
+        {% elif prisoner.status == "Awaiting details" %} 
+          <strong class="govuk-tag govuk-tag--yellow">Awaiting details</strong> 
+        {% elif prisoner.status == "Ready to schedule" %} 
+          <strong class="govuk-tag govuk-tag--blue">Ready to schedule</strong> 
+        {% else %} 
+          <strong class="govuk-tag govuk-tag--green">Completed</strong> 
+        {% endif %} 
+      </span> 
+    </div> 
+  </div> 
+{% else %} 
+  <p class="govuk-body">No prisoners found for transfer.</p> 
+{% endfor %}
+

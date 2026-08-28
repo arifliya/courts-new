@@ -32,8 +32,33 @@
   <div class="govuk-grid-row">
     
       <div class="govuk-grid-column-two-thirds-from-desktop  govuk-!-margin-top-8">
-        <label class="govuk-label govuk-label--l" for="comments"><span class="govuk-caption-l">Schedule a transfer</span>
-        <h1 class="govuk-heading-l">Check your answers</h1></label>
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Bulk transfer has been scheduled
+          </h1>
+          <!-- <div class="govuk-panel__body">
+            Your reference number<br><strong>HDJ2123F</strong>
+          </div> -->
+        </div>
+<br>
+        <h2 class="govuk-heading-m">Prisoners in this bulk transfer</h2>
+        
+        <dl class="govuk-summary-list">
+  {% for prisonerName in data['bulkSelectedNames'] %}
+    {# The Prototype Kit automatically maps 'bulkSelectedNames[]' inputs to 'bulkSelectedNames' #}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__value">
+        {{ prisonerName }}
+      </dt>
+      
+    </div>
+  {% endfor %}
+</dl>
+
+
+
+
+
         <h2 class="govuk-heading-m">Personal details</h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           
@@ -42,23 +67,17 @@
               Date and time
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['transfer-date'] or '5 January 2026' }} at {{ data['transfer-hour'] or '09' }}:{{ data['transfer-minute'] or '00' }}
+              {{ data['date'] or '10 September 2026' }} at {{ data['transfer-hour'] or '09' }}:{{ data['transfer-minute'] or '00' }}
             </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="enter-date-time-transfers.html?date={{ data['date'] or '5 January 2026' }}&hour={{ data['hour'] or '09' }}&minute={{ data['minute'] or '00' }}">Change<span class="govuk-visually-hidden"> date and time</span></a>
-            </dd>
+            
           </div>
           
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Destination</dt>
             <dd class="govuk-summary-list__value">
-              {{ data['choose-prison'] or 'HMP Bristol' }}
+              {{ data['choose-prison'] or 'HMP Manchester' }}
             </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="transfer-destination.html?choose-prison={{ data['choose-prison'] }}">
-                Change<span class="govuk-visually-hidden"> prison location</span>
-              </a>
-            </dd>
+            
           </div>
 
           <div class="govuk-summary-list__row">
@@ -68,9 +87,7 @@
             <dd class="govuk-summary-list__value">
               {{ data['transfer-reason'] or 'Medical' }}
             </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="transfer-reason.html?transfer-reason={{ data['transfer-reason'] }}">Change<span class="govuk-visually-hidden">transfer reason</span></a>
-            </dd>
+            
           </div>
  
           <div class="govuk-summary-list__row">
@@ -80,9 +97,7 @@
             <dd class="govuk-summary-list__value">
               {{ data['escort-type'] or 'Police escort' }}
             </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="what-type-of-escorted-transfer.html?escort-type={{ data['escort-type'] }}">Change<span class="govuk-visually-hidden"> escort type</span></a>
-            </dd>
+            
           </div>
 
           <div class="govuk-summary-list__row">
@@ -92,9 +107,7 @@
             <dd class="govuk-summary-list__value">
               {{ data['comments'] or 'Not provided' }}
             </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="comments-transfers.html?comments={{ data['transfer-comments'] }}">Change<span class="govuk-visually-hidden"> comments</span></a>
-            </dd>
+            
           </div>
 
 
@@ -103,22 +116,21 @@
               Status
             </dt>
             <dd class="govuk-summary-list__value">
-              <strong class="govuk-tag">
-                Ready to schedule
+              <strong class="govuk-tag govuk-tag--teal">
+                Scheduled
               </strong>
             </dd>
-            <!-- <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="comments-transfers.html?comments={{ data['transfer-comments'] }}">Change<span class="govuk-visually-hidden"> comments</span></a>
-            </dd> -->
+           
           </div>
         </dl>
          
 
         <div class="govuk-button-group">
-          <form action="confirmation-transfer" method="post" novalidate>
+          <form action="transfers-home" method="post" novalidate>
           <input type="hidden" name="answers-checked" value="true">
           <button type="submit" class="govuk-button" data-module="govuk-button">
-            Schedule this transfer
+            Back to transfers homepage
+
           </button>
         </form>
 
@@ -130,6 +142,7 @@
     
   </div>
 </div>
+
 
 
 

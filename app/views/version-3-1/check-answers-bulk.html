@@ -34,6 +34,30 @@
       <div class="govuk-grid-column-two-thirds-from-desktop  govuk-!-margin-top-8">
         <label class="govuk-label govuk-label--l" for="comments"><span class="govuk-caption-l">Schedule a transfer</span>
         <h1 class="govuk-heading-l">Check your answers</h1></label>
+
+
+        <h2 class="govuk-heading-m">Prisoners in this bulk transfer</h2>
+        
+        <dl class="govuk-summary-list">
+  {% for prisonerName in data['bulkSelectedNames'] %}
+    {# The Prototype Kit automatically maps 'bulkSelectedNames[]' inputs to 'bulkSelectedNames' #}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__value">
+        {{ prisonerName }}
+      </dt>
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link govuk-link--no-visited-state" href="bulk-selection.html">
+          Change<span class="govuk-visually-hidden"> prisoner name</span>
+        </a>
+      </dd>
+    </div>
+  {% endfor %}
+</dl>
+
+
+
+
+
         <h2 class="govuk-heading-m">Personal details</h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           
@@ -42,7 +66,7 @@
               Date and time
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['transfer-date'] or '5 January 2026' }} at {{ data['transfer-hour'] or '09' }}:{{ data['transfer-minute'] or '00' }}
+              {{ data['date'] or '10 September 2026' }} at {{ data['transfer-hour'] or '09' }}:{{ data['transfer-minute'] or '00' }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link govuk-link--no-visited-state" href="enter-date-time-transfers.html?date={{ data['date'] or '5 January 2026' }}&hour={{ data['hour'] or '09' }}&minute={{ data['minute'] or '00' }}">Change<span class="govuk-visually-hidden"> date and time</span></a>
@@ -52,7 +76,7 @@
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Destination</dt>
             <dd class="govuk-summary-list__value">
-              {{ data['choose-prison'] or 'HMP Bristol' }}
+              {{ data['choose-prison'] or 'HMP Manchester' }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link govuk-link--no-visited-state" href="transfer-destination.html?choose-prison={{ data['choose-prison'] }}">
@@ -115,7 +139,7 @@
          
 
         <div class="govuk-button-group">
-          <form action="confirmation-transfer" method="post" novalidate>
+          <form action="confirmation-bulk" method="post" novalidate>
           <input type="hidden" name="answers-checked" value="true">
           <button type="submit" class="govuk-button" data-module="govuk-button">
             Schedule this transfer
@@ -131,6 +155,43 @@
   </div>
 </div>
 
+
+<script>
+const form = document.getElementById('bulkCheckAnswersForm');
+if (form) {
+  form.addEventListener('submit', () => {
+    // 1. Remove any previously injected inputs to keep the form clean
+    form.querySelectorAll('.js-injected-names').forEach(el => el.remove());
+
+    const checkedBoxes = document.querySelectorAll('input[name="selected_prisoners"]:checked');
+    const selectedNames = [];
+    
+    checkedBoxes.forEach((checkbox) => {
+      const label = document.querySelector(`label[for="${checkbox.id}"]`);
+      if (label) {
+        const fullText = label.textContent.trim();
+        const parts = fullText.split('-');
+        const nameOnly = parts ? parts.trim() : '';
+        
+        if (nameOnly) {
+          selectedNames.push(nameOnly);
+        }
+      }
+    });
+
+    // 2. Create ONE single input containing all the names as a JSON string
+    const hiddenInput = document.createElement('input');
+    hiddenInput.type = 'hidden';
+    hiddenInput.className = 'js-injected-names';
+    hiddenInput.name = 'bulkSelectedNames'; // Overwrites data['bulkSelectedNames'] directly
+    hiddenInput.value = JSON.stringify(selectedNames);
+    
+    form.appendChild(hiddenInput);
+  });
+}
+
+
+</script>
 
 
 

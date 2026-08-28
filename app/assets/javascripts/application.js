@@ -226,6 +226,6 @@ if (escortElement) {
   });
 }
 
+});
 
-})
 
