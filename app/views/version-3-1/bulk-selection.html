@@ -47,7 +47,8 @@
     <div class="govuk-grid-column-two-thirds">
       <div class="govuk-!-static-margin-bottom-6">
         <span class="govuk-caption-l">Bulk transfers</span>
-        <label for="searchTerm"><h1 class="govuk-heading-l">Bulk update prisoners</h1></label>
+        <label for="searchTerm"><h1 class="govuk-heading-l">Edit bulk transfer list</h1></label>
+        <p>Edit details or add another prisoner to this bulk transfer list. Any changes made will affect all scheduled transfers in this list.</p>
       </div>
     </div>
   </div>
@@ -68,7 +69,7 @@
       <div class="moj-filter" data-module="moj-filter">
         <div class="moj-filter__header">
           <div class="moj-filter__header-title">
-            <h2 class="govuk-heading-m ">Bulk transfer created</h2>
+            <h2 class="govuk-heading-m ">Bulk transfer list</h2>
           </div>
           <div class="moj-filter__header-action">
           </div>
@@ -215,11 +216,14 @@
 </div>
 </div>
 </div>
-
+<button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="continueBulk">
+              Add another prisoner
+            </button>
 
        <button type="submit" class="govuk-button" data-module="govuk-button" id="continueBulk">
               Continue
             </button>
+            
           </div>
         </div>
       </div>

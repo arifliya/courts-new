@@ -41,25 +41,9 @@
           </div> -->
         </div>
 <br>
-        <h2 class="govuk-heading-m">Prisoners in this bulk transfer</h2>
         
-        <dl class="govuk-summary-list">
-  {% for prisonerName in data['bulkSelectedNames'] %}
-    {# The Prototype Kit automatically maps 'bulkSelectedNames[]' inputs to 'bulkSelectedNames' #}
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__value">
-        {{ prisonerName }}
-      </dt>
-      
-    </div>
-  {% endfor %}
-</dl>
 
-
-
-
-
-        <h2 class="govuk-heading-m">Personal details</h2>
+        <h2 class="govuk-heading-m">Bulk transfer list details</h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           
           <div class="govuk-summary-list__row">
@@ -123,6 +107,20 @@
            
           </div>
         </dl>
+
+        <h2 class="govuk-heading-m">Prisoners in this bulk transfer</h2>
+        
+        <dl class="govuk-summary-list">
+  {% for prisonerName in data['bulkSelectedNames'] %}
+    {# The Prototype Kit automatically maps 'bulkSelectedNames[]' inputs to 'bulkSelectedNames' #}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__value">
+        {{ prisonerName }}
+      </dt>
+      
+    </div>
+  {% endfor %}
+</dl>
          
 
         <div class="govuk-button-group">
